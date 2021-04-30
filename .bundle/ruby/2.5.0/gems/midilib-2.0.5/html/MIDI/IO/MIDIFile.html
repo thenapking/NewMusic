@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MIDI::IO::MIDIFile - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-arbitrary">#arbitrary</a>
+    
+    <li ><a href="#method-i-bad_byte">#bad_byte</a>
+    
+    <li ><a href="#method-i-chan_message">#chan_message</a>
+    
+    <li ><a href="#method-i-chan_pressure">#chan_pressure</a>
+    
+    <li ><a href="#method-i-controller">#controller</a>
+    
+    <li ><a href="#method-i-end_track">#end_track</a>
+    
+    <li ><a href="#method-i-eot">#eot</a>
+    
+    <li ><a href="#method-i-error">#error</a>
+    
+    <li ><a href="#method-i-get_bytes">#get_bytes</a>
+    
+    <li ><a href="#method-i-getc">#getc</a>
+    
+    <li ><a href="#method-i-handle_arbitrary">#handle_arbitrary</a>
+    
+    <li ><a href="#method-i-handle_sysex">#handle_sysex</a>
+    
+    <li ><a href="#method-i-header">#header</a>
+    
+    <li ><a href="#method-i-key_signature">#key_signature</a>
+    
+    <li ><a href="#method-i-meta_event">#meta_event</a>
+    
+    <li ><a href="#method-i-meta_misc">#meta_misc</a>
+    
+    <li ><a href="#method-i-msg">#msg</a>
+    
+    <li ><a href="#method-i-msg_add">#msg_add</a>
+    
+    <li ><a href="#method-i-msg_init">#msg_init</a>
+    
+    <li ><a href="#method-i-msg_read">#msg_read</a>
+    
+    <li ><a href="#method-i-note_off">#note_off</a>
+    
+    <li ><a href="#method-i-note_on">#note_on</a>
+    
+    <li ><a href="#method-i-pitch_bend">#pitch_bend</a>
+    
+    <li ><a href="#method-i-pressure">#pressure</a>
+    
+    <li ><a href="#method-i-program">#program</a>
+    
+    <li ><a href="#method-i-read16">#read16</a>
+    
+    <li ><a href="#method-i-read32">#read32</a>
+    
+    <li ><a href="#method-i-read_from">#read_from</a>
+    
+    <li ><a href="#method-i-read_header">#read_header</a>
+    
+    <li ><a href="#method-i-read_mt_header_string">#read_mt_header_string</a>
+    
+    <li ><a href="#method-i-read_track">#read_track</a>
+    
+    <li ><a href="#method-i-read_var_len">#read_var_len</a>
+    
+    <li ><a href="#method-i-sequence_number">#sequence_number</a>
+    
+    <li ><a href="#method-i-sequencer_specific">#sequencer_specific</a>
+    
+    <li ><a href="#method-i-smpte">#smpte</a>
+    
+    <li ><a href="#method-i-start_track">#start_track</a>
+    
+    <li ><a href="#method-i-sysex">#sysex</a>
+    
+    <li ><a href="#method-i-tempo">#tempo</a>
+    
+    <li ><a href="#method-i-text">#text</a>
+    
+    <li ><a href="#method-i-time_signature">#time_signature</a>
+    
+    <li ><a href="#method-i-write16">#write16</a>
+    
+    <li ><a href="#method-i-write32">#write32</a>
+    
+    <li ><a href="#method-i-write_var_len">#write_var_len</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MIDI::IO::MIDIFile">
+  <h1 id="class-MIDI::IO::MIDIFile" class="class">
+    class MIDI::IO::MIDIFile
+  </h1>
+
+  <section class="description">
+    
+<p>A <a href="MIDIFile.html">MIDIFile</a> parses a <a
+href="../MIDI.html">MIDI</a> file and calls methods when it sees <a
+href="../MIDI.html">MIDI</a> events. Most of the methods are stubs. To do
+anything interesting with the events, override these methods (those between
+the “The rest of these are NOPs by default” and “End of NOPs” comments).</p>
+
+<p>See <a href="SeqReader.html">SeqReader</a> for a subclass that uses these
+methods to create <a href="../Event.html">Event</a> objects.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="MThd_BYTE_ARRAY">MThd_BYTE_ARRAY
+        
+        <dd>
+        
+      
+        <dt id="MTrk_BYTE_ARRAY">MTrk_BYTE_ARRAY
+        
+        <dd>
+        
+      
+        <dt id="NUM_DATA_BYTES">NUM_DATA_BYTES
+        
+        <dd><p>This array is indexed by the high half of a status byte. Its value is
+either the number of bytes needed (1 or 2) for a channel message, or 0 if
+it&#39;s not a channel message.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-bytes_to_be_read" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">bytes_to_be_read</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-curr_ticks" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">curr_ticks</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-no_merge" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">no_merge</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-raw_data" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">raw_data</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-raw_time_stamp_data" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">raw_time_stamp_data</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Raw data info</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-raw_var_num_data" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">raw_var_num_data</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-skip_init" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">skip_init</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ticks_so_far" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ticks_so_far</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@no_merge</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@skip_init</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@io</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@bytes_to_be_read</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@msg_buf</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-arbitrary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arbitrary</span><span
+            class="method-args">(msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="arbitrary-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">arbitrary</span>(<span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bad_byte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bad_byte</span><span
+            class="method-args">(c)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handle an unexpected byte.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bad_byte-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bad_byte</span>(<span class="ruby-identifier">c</span>)
+  <span class="ruby-identifier">error</span>(<span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;unexpected byte: 0x%02x&quot;</span>, <span class="ruby-identifier">c</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chan_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chan_message</span><span
+            class="method-args">(running, status, c1, c2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handle a channel message (note on, note off, etc.)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="chan_message-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chan_message</span>(<span class="ruby-identifier">running</span>, <span class="ruby-identifier">status</span>, <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c2</span>)
+  <span class="ruby-ivar">@raw_data</span> = []
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">status</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">running</span>
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c1</span>
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c2</span>
+
+  <span class="ruby-identifier">chan</span> = <span class="ruby-identifier">status</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x0f</span>
+
+  <span class="ruby-keyword">case</span> (<span class="ruby-identifier">status</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xf0</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NOTE_OFF</span>
+    <span class="ruby-identifier">note_off</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c2</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NOTE_ON</span>
+    <span class="ruby-identifier">note_on</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c2</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">POLY_PRESSURE</span>
+    <span class="ruby-identifier">pressure</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c2</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">CONTROLLER</span>
+    <span class="ruby-identifier">controller</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c2</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">PITCH_BEND</span>
+    <span class="ruby-identifier">pitch_bend</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>, <span class="ruby-identifier">c2</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">PROGRAM_CHANGE</span>
+    <span class="ruby-identifier">program</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">CHANNEL_PRESSURE</span>
+    <span class="ruby-identifier">chan_pressure</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">c1</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;illegal chan message 0x#{&#39;%02x&#39; % (status &amp; 0xf0)}\n&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chan_pressure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chan_pressure</span><span
+            class="method-args">(chan, press)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="chan_pressure-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chan_pressure</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">press</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-controller" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">controller</span><span
+            class="method-args">(chan, control, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="controller-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">controller</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">control</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_track" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_track</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="end_track-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_track</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eot" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eot</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="eot-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eot</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The default error handler.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">loc</span> = <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">tell</span>() <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{self.class.name} error at byte #{loc} (0x#{&#39;%02x&#39; % loc}): #{str}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_bytes</span><span
+            class="method-args">(n)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the next <code>n</code> bytes from @io as an array.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_bytes-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_bytes</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">buf</span> = []
+  <span class="ruby-identifier">n</span>.<span class="ruby-identifier">times</span> { <span class="ruby-identifier">buf</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">getc</span>() }
+  <span class="ruby-identifier">buf</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This default getc implementation tries to read a single byte from io and
+returns it as an integer.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="getc-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getc</span>
+  <span class="ruby-ivar">@bytes_to_be_read</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">readbyte</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_arbitrary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_arbitrary</span><span
+            class="method-args">(msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Copy message into raw data array, then call arbitrary().</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_arbitrary-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_arbitrary</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-ivar">@raw_data</span> = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">dup</span>()
+  <span class="ruby-identifier">arbitrary</span>(<span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_sysex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_sysex</span><span
+            class="method-args">(msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Copy message into raw data array, then call sysex().</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_sysex-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 363</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_sysex</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-ivar">@raw_data</span> = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">dup</span>()
+  <span class="ruby-identifier">sysex</span>(<span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header</span><span
+            class="method-args">(format, ntrks, division)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../MIDI.html">MIDI</a> header.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">ntrks</span>, <span class="ruby-identifier">division</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-key_signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_signature</span><span
+            class="method-args">(sharpflat, is_minor)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key_signature-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_signature</span>(<span class="ruby-identifier">sharpflat</span>, <span class="ruby-identifier">is_minor</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-meta_event" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">meta_event</span><span
+            class="method-args">(type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handle a meta event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="meta_event-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">meta_event</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-identifier">m</span> = <span class="ruby-identifier">msg</span>()              <span class="ruby-comment"># Copy of internal message buffer</span>
+
+  <span class="ruby-comment"># Create raw data array</span>
+  <span class="ruby-ivar">@raw_data</span> = []
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">META_EVENT</span>
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@raw_var_num_data</span>
+  <span class="ruby-ivar">@raw_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">m</span>
+  <span class="ruby-ivar">@raw_data</span>.<span class="ruby-identifier">flatten!</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_SEQ_NUM</span>
+    <span class="ruby-identifier">sequence_number</span>((<span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_TEXT</span>, <span class="ruby-constant">META_COPYRIGHT</span>, <span class="ruby-constant">META_SEQ_NAME</span>, <span class="ruby-constant">META_INSTRUMENT</span>,
+    <span class="ruby-constant">META_LYRIC</span>, <span class="ruby-constant">META_MARKER</span>, <span class="ruby-constant">META_CUE</span>, <span class="ruby-value">0x08</span>, <span class="ruby-value">0x09</span>, <span class="ruby-value">0x0a</span>,
+    <span class="ruby-value">0x0b</span>, <span class="ruby-value">0x0c</span>, <span class="ruby-value">0x0d</span>, <span class="ruby-value">0x0e</span>, <span class="ruby-value">0x0f</span>
+    <span class="ruby-identifier">text</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_TRACK_END</span>
+    <span class="ruby-identifier">eot</span>()
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_SET_TEMPO</span>
+    <span class="ruby-identifier">tempo</span>((<span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_SMPTE</span>
+    <span class="ruby-identifier">smpte</span>(<span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">4</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_TIME_SIG</span>
+    <span class="ruby-identifier">time_signature</span>(<span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">3</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_KEY_SIG</span>
+    <span class="ruby-identifier">key_signature</span>(<span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">META_SEQ_SPECIF</span>
+    <span class="ruby-identifier">sequencer_specific</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">meta_misc</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-meta_misc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">meta_misc</span><span
+            class="method-args">(type, msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="meta_misc-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">meta_misc</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-msg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msg</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a copy of the internal message buffer.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="msg-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@msg_buf</span>.<span class="ruby-identifier">dup</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-msg_add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msg_add</span><span
+            class="method-args">(c)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a byte to the current message buffer.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="msg_add-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msg_add</span>(<span class="ruby-identifier">c</span>)
+  <span class="ruby-ivar">@msg_buf</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-msg_init" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msg_init</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize the internal message buffer.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="msg_init-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 454</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msg_init</span>
+  <span class="ruby-ivar">@msg_buf</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-msg_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msg_read</span><span
+            class="method-args">(n_bytes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read and add a number of bytes to the message buffer. Return the last byte
+(so we can see if it&#39;s an EOX or not).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="msg_read-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msg_read</span>(<span class="ruby-identifier">n_bytes</span>)
+  <span class="ruby-ivar">@msg_buf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">get_bytes</span>(<span class="ruby-identifier">n_bytes</span>)
+  <span class="ruby-ivar">@msg_buf</span>.<span class="ruby-identifier">flatten!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@msg_buf</span>[<span class="ruby-value">-1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-note_off" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">note_off</span><span
+            class="method-args">(chan, note, vel)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="note_off-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">note_off</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">note</span>, <span class="ruby-identifier">vel</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-note_on" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">note_on</span><span
+            class="method-args">(chan, note, vel)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="note_on-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">note_on</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">note</span>, <span class="ruby-identifier">vel</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pitch_bend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pitch_bend</span><span
+            class="method-args">(chan, msb, lsb)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pitch_bend-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pitch_bend</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">msb</span>, <span class="ruby-identifier">lsb</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pressure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pressure</span><span
+            class="method-args">(chan, note, press)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pressure-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pressure</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">note</span>, <span class="ruby-identifier">press</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-program" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">program</span><span
+            class="method-args">(chan, program)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="program-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">program</span>(<span class="ruby-identifier">chan</span>, <span class="ruby-identifier">program</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read16" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read16</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read and return a sixteen bit value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read16-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read16</span>
+  <span class="ruby-identifier">val</span> = (<span class="ruby-identifier">getc</span>() <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">getc</span>()
+  <span class="ruby-identifier">val</span> = <span class="ruby-operator">-</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7fff</span>) <span class="ruby-keyword">if</span> (<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x8000</span>).<span class="ruby-identifier">nonzero?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read32" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read32</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read and return a 32-bit value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read32-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read32</span>
+  <span class="ruby-identifier">val</span> = (<span class="ruby-identifier">getc</span>() <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">24</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">getc</span>() <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">getc</span>() <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">+</span>
+    <span class="ruby-identifier">getc</span>()
+  <span class="ruby-identifier">val</span> = <span class="ruby-operator">-</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7fffffff</span>) <span class="ruby-keyword">if</span> (<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x80000000</span>).<span class="ruby-identifier">nonzero?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_from</span><span
+            class="method-args">(io)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The only public method. Each <a href="../MIDI.html">MIDI</a> event in the
+file causes a method to be called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_from-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_from</span>(<span class="ruby-identifier">io</span>)
+  <span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;must specify non-nil input stream&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@io</span> = <span class="ruby-identifier">io</span>
+
+  <span class="ruby-identifier">ntrks</span> = <span class="ruby-identifier">read_header</span>()
+  <span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;No tracks!&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ntrks</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">ntrks</span>.<span class="ruby-identifier">times</span> { <span class="ruby-identifier">read_track</span>() }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_header</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a header chunk.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_header-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_header</span>
+  <span class="ruby-ivar">@bytes_to_be_read</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">read_mt_header_string</span>(<span class="ruby-constant">MThd_BYTE_ARRAY</span>, <span class="ruby-ivar">@skip_init</span>) <span class="ruby-comment"># &quot;MThd&quot;</span>
+
+  <span class="ruby-ivar">@bytes_to_be_read</span> = <span class="ruby-identifier">read32</span>()
+  <span class="ruby-identifier">format</span> = <span class="ruby-identifier">read16</span>()
+  <span class="ruby-identifier">ntrks</span> = <span class="ruby-identifier">read16</span>()
+  <span class="ruby-identifier">division</span> = <span class="ruby-identifier">read16</span>()
+
+  <span class="ruby-identifier">header</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">ntrks</span>, <span class="ruby-identifier">division</span>)
+
+  <span class="ruby-comment"># Flush any extra stuff, in case the length of the header is not 6</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bytes_to_be_read</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">get_bytes</span>(<span class="ruby-ivar">@bytes_to_be_read</span>)
+    <span class="ruby-ivar">@bytes_to_be_read</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ntrks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_mt_header_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_mt_header_string</span><span
+            class="method-args">(bytes, skip)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read through &#39;MThd&#39; or &#39;MTrk&#39; header string. If skip is
+true, attempt to skip initial trash. If there is an error, <a
+href="MIDIFile.html#method-i-error">error</a> is called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_mt_header_string-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_mt_header_string</span>(<span class="ruby-identifier">bytes</span>, <span class="ruby-identifier">skip</span>)
+  <span class="ruby-identifier">b</span> = []
+  <span class="ruby-identifier">bytes_to_read</span> = <span class="ruby-value">4</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">get_bytes</span>(<span class="ruby-identifier">bytes_to_read</span>)
+    <span class="ruby-identifier">b</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">data</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span>
+      <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;unexpected EOF while trying to read header string #{s}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># See if we found the bytes we&#39;re looking for</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">bytes</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">skip</span>               <span class="ruby-comment"># Try again with the next char</span>
+      <span class="ruby-identifier">i</span> = <span class="ruby-identifier">b</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">index</span>(<span class="ruby-identifier">bytes</span>[<span class="ruby-value">0</span>])
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">b</span> = []
+        <span class="ruby-identifier">bytes_to_read</span> = <span class="ruby-value">4</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">b</span> = <span class="ruby-identifier">b</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+        <span class="ruby-identifier">bytes_to_read</span> = <span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">i</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;header string #{bytes.collect{|b| b.chr}.join} not found&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_track" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_track</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a track chunk.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_track-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_track</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">c1</span> = <span class="ruby-identifier">type</span> = <span class="ruby-identifier">needed</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">sysex_continue</span> = <span class="ruby-keyword">false</span> <span class="ruby-comment"># True if last msg was unfinished</span>
+  <span class="ruby-identifier">running</span> = <span class="ruby-keyword">false</span>                <span class="ruby-comment"># True when running status used</span>
+  <span class="ruby-identifier">status</span> = <span class="ruby-value">0</span>             <span class="ruby-comment"># (Possibly running) status byte</span>
+
+  <span class="ruby-ivar">@bytes_to_be_read</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">read_mt_header_string</span>(<span class="ruby-constant">MTrk_BYTE_ARRAY</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@bytes_to_be_read</span> = <span class="ruby-identifier">read32</span>()
+  <span class="ruby-ivar">@curr_ticks</span> = <span class="ruby-ivar">@ticks_so_far</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">start_track</span>()
+
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@bytes_to_be_read</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@curr_ticks</span> = <span class="ruby-identifier">read_var_len</span>() <span class="ruby-comment"># Delta time</span>
+    <span class="ruby-ivar">@ticks_so_far</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@curr_ticks</span>
+
+    <span class="ruby-comment"># Copy raw var num data into raw time stamp data</span>
+    <span class="ruby-ivar">@raw_time_stamp_data</span> = <span class="ruby-ivar">@raw_var_num_data</span>.<span class="ruby-identifier">dup</span>()
+
+    <span class="ruby-identifier">c</span> = <span class="ruby-identifier">getc</span>()            <span class="ruby-comment"># Read first byte</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">sysex_continue</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">EOX</span>
+      <span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;didn&#39;t find expected continuation of a sysex&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">c</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x80</span>).<span class="ruby-identifier">zero?</span> <span class="ruby-comment"># Running status?</span>
+      <span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;unexpected running status&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">zero?</span>
+      <span class="ruby-identifier">running</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">status</span> = <span class="ruby-identifier">c</span>
+      <span class="ruby-identifier">running</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">needed</span> = <span class="ruby-constant">NUM_DATA_BYTES</span>[(<span class="ruby-identifier">status</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x0f</span>]
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">needed</span>.<span class="ruby-identifier">nonzero?</span>    <span class="ruby-comment"># i.e., is it a channel message?</span>
+      <span class="ruby-identifier">c1</span> = <span class="ruby-identifier">running</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">getc</span>() <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7f</span>)
+
+      <span class="ruby-comment"># The &quot;&amp; 0x7f&quot; here may seem unnecessary, but I&#39;ve seen</span>
+      <span class="ruby-comment"># &quot;bad&quot; MIDI files that had, for example, volume bytes</span>
+      <span class="ruby-comment"># with the upper bit set. This code should not harm</span>
+      <span class="ruby-comment"># proper data.</span>
+      <span class="ruby-identifier">chan_message</span>(<span class="ruby-identifier">running</span>, <span class="ruby-identifier">status</span>, <span class="ruby-identifier">c1</span>,
+                   (<span class="ruby-identifier">needed</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>) <span class="ruby-operator">?</span> (<span class="ruby-identifier">getc</span>() <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7f</span>) <span class="ruby-operator">:</span> <span class="ruby-value">0</span>)
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">c</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">META_EVENT</span>       <span class="ruby-comment"># Meta event</span>
+      <span class="ruby-identifier">type</span> = <span class="ruby-identifier">getc</span>()
+      <span class="ruby-identifier">msg_init</span>()
+      <span class="ruby-identifier">msg_read</span>(<span class="ruby-identifier">read_var_len</span>())
+      <span class="ruby-identifier">meta_event</span>(<span class="ruby-identifier">type</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">SYSEX</span>            <span class="ruby-comment"># Start of system exclusive</span>
+      <span class="ruby-identifier">msg_init</span>()
+      <span class="ruby-identifier">msg_add</span>(<span class="ruby-constant">SYSEX</span>)
+      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">msg_read</span>(<span class="ruby-identifier">read_var_len</span>())
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">==</span> <span class="ruby-constant">EOX</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@no_merge</span>
+        <span class="ruby-identifier">handle_sysex</span>(<span class="ruby-identifier">msg</span>())
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">sysex_continue</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">EOX</span>              <span class="ruby-comment"># Sysex continuation or arbitrary stuff</span>
+      <span class="ruby-identifier">msg_init</span>() <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sysex_continue</span>
+      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">msg_read</span>(<span class="ruby-identifier">read_var_len</span>())
+
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sysex_continue</span>
+        <span class="ruby-identifier">handle_arbitrary</span>(<span class="ruby-identifier">msg</span>())
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">==</span> <span class="ruby-constant">EOX</span>
+        <span class="ruby-identifier">handle_sysex</span>(<span class="ruby-identifier">msg</span>())
+        <span class="ruby-identifier">sysex_continue</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">bad_byte</span>(<span class="ruby-identifier">c</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">end_track</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_var_len" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_var_len</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a varlen value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_var_len-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 390</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_var_len</span>
+  <span class="ruby-ivar">@raw_var_num_data</span> = []
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">getc</span>()
+  <span class="ruby-ivar">@raw_var_num_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">c</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x80</span>).<span class="ruby-identifier">nonzero?</span>
+    <span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;=</span> <span class="ruby-value">0x7f</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">getc</span>()
+      <span class="ruby-ivar">@raw_var_num_data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+      <span class="ruby-identifier">val</span> = (<span class="ruby-identifier">val</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">7</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">c</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7f</span>)
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">c</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x80</span>).<span class="ruby-identifier">zero?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sequence_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sequence_number</span><span
+            class="method-args">(num)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sequence_number-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sequence_number</span>(<span class="ruby-identifier">num</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sequencer_specific" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sequencer_specific</span><span
+            class="method-args">(type, msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sequencer_specific-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sequencer_specific</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-smpte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">smpte</span><span
+            class="method-args">(hour, min, sec, frame, fract)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="smpte-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">smpte</span>(<span class="ruby-identifier">hour</span>, <span class="ruby-identifier">min</span>, <span class="ruby-identifier">sec</span>, <span class="ruby-identifier">frame</span>, <span class="ruby-identifier">fract</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_track" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_track</span><span
+            class="method-args">(bytes_to_be_read)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_track-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_track</span>(<span class="ruby-identifier">bytes_to_be_read</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sysex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sysex</span><span
+            class="method-args">(msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sysex-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sysex</span>(<span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tempo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tempo</span><span
+            class="method-args">(microsecs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tempo-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tempo</span>(<span class="ruby-identifier">microsecs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text</span><span
+            class="method-args">(type, msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="text-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-time_signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">time_signature</span><span
+            class="method-args">(numer, denom, clocks, qnotes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="time_signature-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">time_signature</span>(<span class="ruby-identifier">numer</span>, <span class="ruby-identifier">denom</span>, <span class="ruby-identifier">clocks</span>, <span class="ruby-identifier">qnotes</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write16" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write16</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write a sixteen-bit value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write16-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write16</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span> = (<span class="ruby-operator">-</span><span class="ruby-identifier">val</span>) <span class="ruby-operator">|</span> <span class="ruby-value">0x8000</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-identifier">putc</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write32" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write32</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write a 32-bit value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write32-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write32</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span> = (<span class="ruby-operator">-</span><span class="ruby-identifier">val</span>) <span class="ruby-operator">|</span> <span class="ruby-value">0x80000000</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">24</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-identifier">putc</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_var_len" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_var_len</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write a variable length value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_var_len-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/midifile.rb, line 424</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_var_len</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-identifier">putc</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">buf</span> = []
+
+  <span class="ruby-identifier">buf</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7f</span>)
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;&gt;=</span> <span class="ruby-value">7</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">buf</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x7f</span>) <span class="ruby-operator">|</span> <span class="ruby-value">0x80</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">buf</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">putc</span>(<span class="ruby-identifier">b</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

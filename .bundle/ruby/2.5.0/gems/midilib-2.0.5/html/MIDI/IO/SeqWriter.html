@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MIDI::IO::SeqWriter - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-possibly_munge_due_to_running_status_byte">#possibly_munge_due_to_running_status_byte</a>
+    
+    <li ><a href="#method-i-write16">#write16</a>
+    
+    <li ><a href="#method-i-write32">#write32</a>
+    
+    <li ><a href="#method-i-write_bytes">#write_bytes</a>
+    
+    <li ><a href="#method-i-write_header">#write_header</a>
+    
+    <li ><a href="#method-i-write_instrument">#write_instrument</a>
+    
+    <li ><a href="#method-i-write_to">#write_to</a>
+    
+    <li ><a href="#method-i-write_track">#write_track</a>
+    
+    <li ><a href="#method-i-write_var_len">#write_var_len</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MIDI::IO::SeqWriter">
+  <h1 id="class-MIDI::IO::SeqWriter" class="class">
+    class MIDI::IO::SeqWriter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(seq, proc = nil) { |num_tracks, index| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">seq</span>, <span class="ruby-identifier">proc</span> = <span class="ruby-keyword">nil</span>) <span class="ruby-comment"># :yields: num_tracks, index</span>
+  <span class="ruby-ivar">@seq</span> = <span class="ruby-identifier">seq</span>
+  <span class="ruby-ivar">@update_block</span> = <span class="ruby-identifier">block_given?</span>() <span class="ruby-operator">?</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>() <span class="ruby-operator">:</span> <span class="ruby-identifier">proc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-possibly_munge_due_to_running_status_byte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">possibly_munge_due_to_running_status_byte</span><span
+            class="method-args">(data, prev_status)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If we can use a running status byte, delete the status byte from the given
+data. Return the status to remember for next time as the running status
+byte for this event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="possibly_munge_due_to_running_status_byte-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">possibly_munge_due_to_running_status_byte</span>(<span class="ruby-identifier">data</span>, <span class="ruby-identifier">prev_status</span>)
+  <span class="ruby-identifier">status</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">status</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0xf0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prev_status</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0xf0</span>
+
+  <span class="ruby-identifier">chan</span> = (<span class="ruby-identifier">status</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x0f</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">status</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">chan</span> <span class="ruby-operator">!=</span> (<span class="ruby-identifier">prev_status</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x0f</span>)
+
+  <span class="ruby-identifier">status</span> = (<span class="ruby-identifier">status</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xf0</span>)
+  <span class="ruby-identifier">prev_status</span> = (<span class="ruby-identifier">prev_status</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xf0</span>)
+
+  <span class="ruby-comment"># Both events are on the same channel. If the two status bytes are</span>
+  <span class="ruby-comment"># exactly the same, the rest is trivial. If it&#39;s note on/note off,</span>
+  <span class="ruby-comment"># we can combine those further.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">prev_status</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] = []        <span class="ruby-comment"># delete status byte from data</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">chan</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-constant">NOTE_OFF</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-value">64</span>
+    <span class="ruby-comment"># If we see a note off and the velocity is 64, we can store</span>
+    <span class="ruby-comment"># a note on with a velocity of 0. If the velocity isn&#39;t 64</span>
+    <span class="ruby-comment"># then storing a note on would be bad because the would be</span>
+    <span class="ruby-comment"># changed to 64 when reading the file back in.</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">2</span>] = <span class="ruby-value">0</span>           <span class="ruby-comment"># set vel to 0; do before possible shrinking</span>
+    <span class="ruby-identifier">status</span> = <span class="ruby-constant">NOTE_ON</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">chan</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prev_status</span> <span class="ruby-operator">==</span> <span class="ruby-constant">NOTE_ON</span>
+      <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] = []      <span class="ruby-comment"># delete status byte</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">status</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Can&#39;t compress data</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">chan</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write16" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write16</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write16-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write16</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span> = (<span class="ruby-operator">-</span><span class="ruby-identifier">val</span> <span class="ruby-operator">|</span> <span class="ruby-value">0x8000</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">buffer</span> = []
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-ivar">@bytes_written</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write32" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write32</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write32-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write32</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span> = (<span class="ruby-operator">-</span><span class="ruby-identifier">val</span> <span class="ruby-operator">|</span> <span class="ruby-value">0x80000000</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">24</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>((<span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>(<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xff</span>)
+  <span class="ruby-ivar">@bytes_written</span> <span class="ruby-operator">+=</span> <span class="ruby-value">4</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_bytes</span><span
+            class="method-args">(bytes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_bytes-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_bytes</span>(<span class="ruby-identifier">bytes</span>)
+  <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">putc</span>(<span class="ruby-identifier">b</span>) }
+  <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_header</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_header-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_header</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&#39;MThd&#39;</span>
+  <span class="ruby-identifier">write32</span>(<span class="ruby-value">6</span>)
+  <span class="ruby-identifier">write16</span>(<span class="ruby-value">1</span>)             <span class="ruby-comment"># Ignore sequence format; write as format 1</span>
+  <span class="ruby-identifier">write16</span>(<span class="ruby-ivar">@seq</span>.<span class="ruby-identifier">tracks</span>.<span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">write16</span>(<span class="ruby-ivar">@seq</span>.<span class="ruby-identifier">ppqn</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_instrument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_instrument</span><span
+            class="method-args">(instrument)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_instrument-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_instrument</span>(<span class="ruby-identifier">instrument</span>)
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">MetaEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">META_INSTRUMENT</span>, <span class="ruby-identifier">instrument</span>)
+  <span class="ruby-identifier">write_var_len</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data_as_bytes</span>()
+  <span class="ruby-ivar">@bytes_written</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">write_bytes</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_to</span><span
+            class="method-args">(io)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Writes a <a href="../MIDI.html">MIDI</a> format 1 file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_to-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_to</span>(<span class="ruby-identifier">io</span>)
+  <span class="ruby-ivar">@io</span> = <span class="ruby-identifier">io</span>
+  <span class="ruby-ivar">@bytes_written</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">write_header</span>()
+  <span class="ruby-ivar">@update_block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@seq</span>.<span class="ruby-identifier">tracks</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@update_block</span>
+  <span class="ruby-ivar">@seq</span>.<span class="ruby-identifier">tracks</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">track</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">write_track</span>(<span class="ruby-identifier">track</span>)
+    <span class="ruby-ivar">@update_block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">track</span>, <span class="ruby-ivar">@seq</span>.<span class="ruby-identifier">tracks</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">i</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@update_block</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_track" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_track</span><span
+            class="method-args">(track)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_track-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_track</span>(<span class="ruby-identifier">track</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&#39;MTrk&#39;</span>
+  <span class="ruby-identifier">track_size_file_pos</span> = <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">tell</span>()
+  <span class="ruby-identifier">write32</span>(<span class="ruby-value">0</span>)             <span class="ruby-comment"># Dummy byte count; overwritten later</span>
+  <span class="ruby-ivar">@bytes_written</span> = <span class="ruby-value">0</span>     <span class="ruby-comment"># Reset after previous write</span>
+
+  <span class="ruby-identifier">write_instrument</span>(<span class="ruby-identifier">track</span>.<span class="ruby-identifier">instrument</span>)
+
+  <span class="ruby-identifier">prev_event</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">prev_status</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">track</span>.<span class="ruby-identifier">events</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">event</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Realtime</span>)
+      <span class="ruby-identifier">write_var_len</span>(<span class="ruby-identifier">event</span>.<span class="ruby-identifier">delta_time</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data_as_bytes</span>()
+    <span class="ruby-identifier">status</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>] <span class="ruby-comment"># status byte plus channel number, if any</span>
+
+    <span class="ruby-comment"># running status byte</span>
+    <span class="ruby-identifier">status</span> = <span class="ruby-identifier">possibly_munge_due_to_running_status_byte</span>(<span class="ruby-identifier">data</span>, <span class="ruby-identifier">prev_status</span>)
+
+    <span class="ruby-ivar">@bytes_written</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">write_bytes</span>(<span class="ruby-identifier">data</span>)
+
+    <span class="ruby-identifier">prev_event</span> = <span class="ruby-identifier">event</span>
+    <span class="ruby-identifier">prev_status</span> = <span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Write track end event.</span>
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">MetaEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">META_TRACK_END</span>)
+  <span class="ruby-identifier">write_var_len</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-ivar">@bytes_written</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">write_bytes</span>(<span class="ruby-identifier">event</span>.<span class="ruby-identifier">data_as_bytes</span>())
+
+  <span class="ruby-comment"># Go back to beginning of track data and write number of bytes,</span>
+  <span class="ruby-comment"># then come back here to end of file.</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-identifier">track_size_file_pos</span>)
+  <span class="ruby-identifier">write32</span>(<span class="ruby-ivar">@bytes_written</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-value">0</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_var_len" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_var_len</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_var_len-source">
+            <pre><span class="ruby-comment"># File lib/midilib/io/seqwriter.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_var_len</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">buffer</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">as_var_len</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-ivar">@bytes_written</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">write_bytes</span>(<span class="ruby-identifier">buffer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-midilib">midilib</a>
+    <li><a href="#label-Dependencies">Dependencies</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-RubyGems+Installation">RubyGems Installation</a>
+    <li><a href="#label-Manual+Installation">Manual Installation</a>
+    <li><a href="#label-Testing">Testing</a>
+    <li><a href="#label-Overview">Overview</a>
+    <li><a href="#label-MIDI-3A-3ASequence">MIDI::Sequence</a>
+    <li><a href="#label-MIDI-3A-3ATrack">MIDI::Track</a>
+    <li><a href="#label-MIDI-3A-3AMeasure">MIDI::Measure</a>
+    <li><a href="#label-MIDI-3A-3AMeasures">MIDI::Measures</a>
+    <li><a href="#label-MIDI-3A-3AEvent">MIDI::Event</a>
+    <li><a href="#label-How+To+Use">How To Use</a>
+    <li><a href="#label-Reading+a+MIDI+File">Reading a MIDI File</a>
+    <li><a href="#label-Writing+a+MIDI+File">Writing a MIDI File</a>
+    <li><a href="#label-Editing+a+MIDI+File">Editing a MIDI File</a>
+    <li><a href="#label-Transposing+One+Channel">Transposing One Channel</a>
+    <li><a href="#label-Manipulating+tracks">Manipulating tracks</a>
+    <li><a href="#label-Calculating+delta+times">Calculating delta times</a>
+    <li><a href="#label-Example+Scripts">Example Scripts</a>
+    <li><a href="#label-Resources">Resources</a>
+    <li><a href="#label-To+Do">To Do</a>
+    <li><a href="#label-Bugs">Bugs</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Documentation">Documentation</a>
+    <li><a href="#label-Tests">Tests</a>
+    <li><a href="#label-Support">Support</a>
+    <li><a href="#label-Administrivia">Administrivia</a>
+    <li><a href="#label-Copying">Copying</a>
+    <li><a href="#label-Recent+Changes">Recent Changes</a>
+    <li><a href="#label-Changes+for+2.0.5-3A">Changes for 2.0.5:</a>
+    <li><a href="#label-Changes+for+2.0.3-3A">Changes for 2.0.3:</a>
+    <li><a href="#label-Changes+for+2.0.2-3A">Changes for 2.0.2:</a>
+    <li><a href="#label-Changes+for+2.0.0-3A">Changes for 2.0.0:</a>
+    <li><a href="#label-Changes+for+1.2.0-3A">Changes for 1.2.0:</a>
+    <li><a href="#label-New+code+repository">New code repository</a>
+    <li><a href="#label-Changes+for+1.1.4-3A">Changes for 1.1.4:</a>
+    <li><a href="#label-Changes+for+1.1.3-3A">Changes for 1.1.3:</a>
+    <li><a href="#label-Changes+for+1.1.2-3A">Changes for 1.1.2:</a>
+    <li><a href="#label-Changes+for+1.1.1-3A">Changes for 1.1.1:</a>
+    <li><a href="#label-Changes+for+1.1.0-3A">Changes for 1.1.0:</a>
+    <li><a href="#label-Changes+for+1.0.0-3A">Changes for 1.0.0:</a>
+    <li><a href="#label-Changes+for+0.8.7-3A">Changes for 0.8.7:</a>
+    <li><a href="#label-Changes+for+0.8.6-3A">Changes for 0.8.6:</a>
+    <li><a href="#label-Changes+for+0.8.5-3A">Changes for 0.8.5:</a>
+    <li><a href="#label-Changes+for+0.8.4-3A">Changes for 0.8.4:</a>
+    <li><a href="#label-Changes+for+0.8.3-3A">Changes for 0.8.3:</a>
+    <li><a href="#label-Changes+for+0.8.2-3A">Changes for 0.8.2:</a>
+    <li><a href="#label-Changes+for+0.8.1-3A">Changes for 0.8.1:</a>
+    <li><a href="#label-Warranty">Warranty</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./TODO_rdoc.html">TODO</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-midilib">midilib<span><a href="#label-midilib">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>midilib is a pure Ruby <a href="MIDI.html">MIDI</a> library useful for
+reading and writing standard <a href="MIDI.html">MIDI</a> files and
+manipulating <a href="MIDI.html">MIDI</a> event data.</p>
+
+<p>The GitHub project page and Web site of midilib is <a
+href="http://github.com/jimm/midilib">github.com/jimm/midilib</a> and the
+RubyGems.org page is <a
+href="http://rubygems.org/gems/midilib">rubygems.org/gems/midilib</a>,
+where you can also find all the RDoc documentation.</p>
+
+<p>midilib is compatible with Ruby 1.8.x 1.9.x, and 2.x.</p>
+
+<h2 id="label-Dependencies">Dependencies<span><a href="#label-Dependencies">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>midilib does not require any other packages. The test suite in the tests
+directory requires the testing framework TestUnit, which comes with Ruby
+1.8 and later and can also be found in the Ruby Application Archive (<a
+href="http://raa.ruby-lang.org">raa.ruby-lang.org</a>).</p>
+
+<p>To rebuild the gem or RDocs or run the tests easily, you can use the
+Rakefile which requires Rake (<a
+href="http://rake.rubyforge.org">rake.rubyforge.org</a>).</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-RubyGems+Installation">RubyGems Installation<span><a href="#label-RubyGems+Installation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To install midilib as a gem, type</p>
+
+<pre>% gem install midilib</pre>
+
+<p>or, if you already have a previous version, use</p>
+
+<pre>% gem update midilib</pre>
+
+<p>You may need root privileges to install or update the gem.</p>
+
+<h3 id="label-Manual+Installation">Manual Installation<span><a href="#label-Manual+Installation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>After downloading and expanding the archive, you can install midilib with
+the command</p>
+
+<pre>% ruby install.rb</pre>
+
+<p>(or)</p>
+
+<pre>% ruby install.rb --install-dir=my_directory</pre>
+
+<p>You may need root privileges to install.</p>
+
+<h2 id="label-Testing">Testing<span><a href="#label-Testing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>% rake test</pre>
+
+<p>runs all of the tests in the test directory.</p>
+
+<h2 id="label-Overview">Overview<span><a href="#label-Overview">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The midilib <a href="MIDI.html">MIDI</a> file reader only understands <a
+href="MIDI.html">MIDI</a> file format 1, where a sequence is made up of
+multiple tracks. It doesn&#39;t yet understand format 0 (a single track
+containing all events) or format 2 (a collection of format 0 files in one
+file).</p>
+
+<h3 id="label-MIDI-3A-3ASequence"><a href="MIDI/Sequence.html">MIDI::Sequence</a><span><a href="#label-MIDI-3A-3ASequence">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A sequence contains a collection of tracks and global information like the
+sequence&#39;s pulses per quarter note (ppqn) and time signature.</p>
+
+<p>The first track in a sequence is special; it holds meta-events like tempo
+and sequence name. Don&#39;t put any notes in this track.</p>
+
+<p><a href="MIDI/Sequence.html">MIDI::Sequence</a> also contains some
+convenience methods that let you set and retrieve the sequence&#39;s name,
+the time signature, and to retrieve the first tempo event&#39;s
+beats-per-minute value.</p>
+
+<p>Normally instances of <a
+href="MIDI/IO/SeqReader.html">MIDI::IO::SeqReader</a> and <a
+href="MIDI/IO/SeqWriter.html">MIDI::IO::SeqWriter</a> are used when a
+sequence reads itself from or writes itself to a <a
+href="MIDI.html">MIDI</a> file. You can change that by setting a
+sequence&#39;s reader_class or writer_class attributes. Instances of the
+classes contained in those attributes are created and used whenever the
+sequence reads or writes itself.</p>
+
+<h3 id="label-MIDI-3A-3ATrack"><a href="MIDI/Track.html">MIDI::Track</a><span><a href="#label-MIDI-3A-3ATrack">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A track contains an array of events.</p>
+
+<p>When you modify the <code>events</code> array, make sure to call
+recalc_times so each event gets its <code>time_from_start</code>
+recalculated. You don&#39;t have to do that after every event you add; just
+remember to do so before using the track in a way that expects the list of
+events to be ordered correctly.</p>
+
+<p>A Track also holds a bit mask that specifies the channels used by the
+track. This bit mask is set when the track is read from the <a
+href="MIDI.html">MIDI</a> file by a SeqReader but is <em>not</em> kept up
+to date by any other methods. Specifically, if you add events to a track at
+any other time, the bit mask will not be updated.</p>
+
+<h3 id="label-MIDI-3A-3AMeasure"><a href="MIDI/Measure.html">MIDI::Measure</a><span><a href="#label-MIDI-3A-3AMeasure">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>This class contains information about a measure from the sequence. Measure
+data is based on the time signature information from the sequence and is
+not stored in the sequence itself.</p>
+
+<h3 id="label-MIDI-3A-3AMeasures"><a href="MIDI/Measures.html">MIDI::Measures</a><span><a href="#label-MIDI-3A-3AMeasures">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The class <a href="MIDI/Sequence.html">MIDI::Sequence</a> method
+get_measures returns a <a href="MIDI/Measures.html">MIDI::Measures</a>
+object. <a href="MIDI/Measures.html">MIDI::Measures</a> is a subclass of
+Array. It is a specialized container for <a
+href="MIDI/Measure.html">MIDI::Measure</a> objects, which can be use to map
+event times to measure numbers. Please note that this object has to be
+remade when events are deleted/added in the sequence.</p>
+
+<p><a href="MIDI/Measure.html">MIDI::Measure</a> and <a
+href="MIDI/Measures.html">MIDI::Measures</a> are brought to us by Jari
+Williamsson &lt;jari.williamsson@mailbox.swipnet.se&gt;, who also
+contributed some improvements to the <a
+href="MIDI/Event.html">MIDI::Event</a> and <a
+href="MIDI/Track.html">MIDI::Track</a> classes.</p>
+
+<h3 id="label-MIDI-3A-3AEvent"><a href="MIDI/Event.html">MIDI::Event</a><span><a href="#label-MIDI-3A-3AEvent">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Each event holds not only its delta time but also its time from the start
+of the track. The track is responsible for recalculating its events&#39;
+start times. You can call <a
+href="MIDI/Track.html#method-i-recalc_times">MIDI::Track#recalc_times</a>
+to do so.</p>
+
+<p>Subclasses of <a href="MIDI/Event.html">MIDI::Event</a> implement the
+various <a href="MIDI.html">MIDI</a> messages such as note on and off,
+controller values, system exclusive data, and realtime bytes.</p>
+
+<p><a href="MIDI/Realtime.html">MIDI::Realtime</a> events have delta values
+and start times, just like all the other midilib event types do. (MIDI real
+time status bytes don&#39;t have delta times, but this way we can record
+when in a track the realtime byte was received and should be sent. This is
+useful for start/continue/stop events that control other devices, for
+example.) Note that when a <a href="MIDI/Realtime.html">MIDI::Realtime</a>
+event is written out to a <a href="MIDI.html">MIDI</a> file, the delta time
+is not written.</p>
+
+<p><a href="MIDI/MetaEvent.html">MIDI::MetaEvent</a> events hold an array of
+bytes named &#39;data&#39;. Many meta events are string holders (text,
+lyric, marker, etc.) Though the &#39;data&#39; value is always an array of
+bytes, <a href="MIDI/MetaEvent.html">MIDI::MetaEvent</a> helps with saving
+and accessing string. The <a
+href="MIDI/MetaEvent.html#method-i-data_as_str">MIDI::MetaEvent#data_as_str</a>
+method returns the data bytes as a string. When assigning to a meta
+event&#39;s data, if you pass in a string it will get converted to an array
+of bytes.</p>
+
+<h2 id="label-How+To+Use">How To Use<span><a href="#label-How+To+Use">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The following examples show you how to use midilib to read, write, and
+manipulate <a href="MIDI.html">MIDI</a> files and modify track events. See
+also the files in the examples directory, which are described below.</p>
+
+<h3 id="label-Reading+a+MIDI+File">Reading a <a href="MIDI.html">MIDI</a> File<span><a href="#label-Reading+a+MIDI+File">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To read a <a href="MIDI.html">MIDI</a> file, create a <a
+href="MIDI/Sequence.html">MIDI::Sequence</a> object and call its read
+method, passing in an <a href="IO.html">IO</a> object.</p>
+
+<p>The read method takes an optional block. If present, the block is called
+once after each track has finished being read. Each time, it is passed the
+track object, the total number of tracks and the number of the current
+track that has just been read. This is useful for notifying the user of
+progress, for example by updating a GUI progress bar.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;midilib/io/seqreader&#39;</span>
+
+<span class="ruby-comment"># Create a new, empty sequence.</span>
+<span class="ruby-identifier">seq</span> = <span class="ruby-constant">MIDI</span><span class="ruby-operator">::</span><span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>()
+
+<span class="ruby-comment"># Read the contents of a MIDI file into the sequence.</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;my_midi_file.mid&#39;</span>, <span class="ruby-string">&#39;rb&#39;</span>) { <span class="ruby-operator">|</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">|</span>
+    <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>) { <span class="ruby-operator">|</span> <span class="ruby-identifier">track</span>, <span class="ruby-identifier">num_tracks</span>, <span class="ruby-identifier">i</span> <span class="ruby-operator">|</span>
+        <span class="ruby-comment"># Print something when each track is read.</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;read track #{i} of #{num_tracks}&quot;</span>
+    }
+}
+</pre>
+
+<h3 id="label-Writing+a+MIDI+File">Writing a <a href="MIDI.html">MIDI</a> File<span><a href="#label-Writing+a+MIDI+File">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To write a <a href="MIDI.html">MIDI</a> file, call the write method,
+passing in an <a href="IO.html">IO</a> object.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;midilib/io/seqwriter&#39;</span>
+
+<span class="ruby-comment"># Start with a sequence that has something worth saving.</span>
+<span class="ruby-identifier">seq</span> = <span class="ruby-identifier">read_or_create_seq_we_care_not_how</span>()
+
+<span class="ruby-comment"># Write the sequence to a MIDI file.</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;my_output_file.mid&#39;</span>, <span class="ruby-string">&#39;wb&#39;</span>) { <span class="ruby-operator">|</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">file</span>) }
+</pre>
+
+<h3 id="label-Editing+a+MIDI+File">Editing a <a href="MIDI.html">MIDI</a> File<span><a href="#label-Editing+a+MIDI+File">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Combining the last two examples, here is a script that reads a <a
+href="MIDI.html">MIDI</a> file, transposes some events, and writes the
+sequence out to a different file. This is a useful template for
+programatically manipulating <a href="MIDI.html">MIDI</a> data.</p>
+
+<p>This code transposes all of the note events (note on, note off, and poly
+pressure) on channel 5 down one octave.</p>
+
+<h4 id="label-Transposing+One+Channel">Transposing One Channel<span><a href="#label-Transposing+One+Channel">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;midilib/io/seqreader&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;midilib/io/seqwriter&#39;</span>
+
+<span class="ruby-comment"># Create a new, empty sequence.</span>
+<span class="ruby-identifier">seq</span> = <span class="ruby-constant">MIDI</span><span class="ruby-operator">::</span><span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>()
+
+<span class="ruby-comment"># Read the contents of a MIDI file into the sequence.</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;my_input_file.mid&#39;</span>, <span class="ruby-string">&#39;rb&#39;</span>) { <span class="ruby-operator">|</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">|</span>
+    <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>) { <span class="ruby-operator">|</span> <span class="ruby-identifier">track</span>, <span class="ruby-identifier">num_tracks</span>, <span class="ruby-identifier">i</span> <span class="ruby-operator">|</span>
+        <span class="ruby-comment"># Print something when each track is read.</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;read track #{i} of #{num_tracks}&quot;</span>
+    }
+}
+
+<span class="ruby-comment"># Iterate over every event in every track.</span>
+<span class="ruby-identifier">seq</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span> <span class="ruby-identifier">track</span> <span class="ruby-operator">|</span>
+    <span class="ruby-identifier">track</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span> <span class="ruby-identifier">event</span> <span class="ruby-operator">|</span>
+        <span class="ruby-comment"># If the event is a note event (note on, note off, or poly</span>
+        <span class="ruby-comment"># pressure) and it is on MIDI channel 5 (channels start at</span>
+        <span class="ruby-comment"># 0, so we use 4), then transpose the event down one octave.</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">MIDI</span><span class="ruby-operator">::</span><span class="ruby-constant">NoteEvent</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">event</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">channel</span> <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+            <span class="ruby-identifier">event</span>.<span class="ruby-identifier">note</span> <span class="ruby-operator">-=</span> <span class="ruby-value">12</span>
+        <span class="ruby-keyword">end</span>
+    }
+}
+
+<span class="ruby-comment"># Write the sequence to a MIDI file.</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;my_output_file.mid&#39;</span>, <span class="ruby-string">&#39;wb&#39;</span>) { <span class="ruby-operator">|</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">file</span>) }
+</pre>
+
+<h3 id="label-Manipulating+tracks">Manipulating tracks<span><a href="#label-Manipulating+tracks">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you modify a track&#39;s list of events directly, don&#39;t forget to
+call <a
+href="MIDI/Track.html#method-i-recalc_times">MIDI::Track#recalc_times</a>
+when you are done.</p>
+
+<pre class="ruby"><span class="ruby-identifier">track</span>.<span class="ruby-identifier">events</span>[<span class="ruby-value">42</span>, <span class="ruby-value">1</span>] = <span class="ruby-identifier">array_of_events</span>
+<span class="ruby-identifier">track</span>.<span class="ruby-identifier">events</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">an_event</span>
+<span class="ruby-identifier">track</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">array_of_events</span>)
+<span class="ruby-identifier">track</span>.<span class="ruby-identifier">recalc_times</span>
+</pre>
+
+<h3 id="label-Calculating+delta+times">Calculating delta times<span><a href="#label-Calculating+delta+times">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A few methods in <a href="MIDI/Sequence.html">MIDI::Sequence</a> make it
+easier to calculate the delta times that represent note lengths. <a
+href="MIDI/Sequence.html#method-i-length_to_delta">MIDI::Sequence#length_to_delta</a>
+takes a note length (a multiple of a quarter note) and returns the delta
+time given the sequence&#39;s current ppqn (pulses per quarter note)
+setting. 1 is a quarter note, 1.0/32.0 is a 32nd note (use floating-point
+numbers to avoid integer rounding), 1.5 is a dotted quarter, etc. See the
+documentation for that method for more information.</p>
+
+<p><a
+href="MIDI/Sequence.html#method-i-note_to_length">MIDI::Sequence#note_to_length</a>
+takes a note name and returns a length value (again, as a multiple of a
+quarter note). Legal note names are those found in
+MIDI::Sequence::NOTE_TO_LENGTH, and may begin with “dotted” and/or end with
+“triplet”. For example, “whole”, “sixteenth”, “32nd”, “quarter triplet”,
+“dotted 16th”, and “dotted 8th triplet” are all legal note names.</p>
+
+<p>Finally, <a
+href="MIDI/Sequence.html#method-i-note_to_delta">MIDI::Sequence#note_to_delta</a>
+takes a note name and returns a delta time. It does this by calling
+note_to_length, then passing the result to length_to_delta.</p>
+
+<h3 id="label-Example+Scripts">Example Scripts<span><a href="#label-Example+Scripts">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Here are short descriptions of each of the examples found in the examples
+directory.</p>
+<ul><li>
+<p>examples/from_scratch.rb shows you how to create a new sequence from
+scratch and save it to a <a href="MIDI.html">MIDI</a> file. It creates a
+file called &#39;from_scratch.mid&#39;.</p>
+</li><li>
+<p>examples/seq2text.rb dumps a <a href="MIDI.html">MIDI</a> file as text. It
+reads in a sequence and uses the to_s method of each event.</p>
+</li><li>
+<p>examples/reader2text.rb dumps a <a href="MIDI.html">MIDI</a> file as text.
+It subclasses MIDI::SeqReader instead of creating a sequence containing
+tracks and events.</p>
+</li><li>
+<p>examples/transpose.rb transposes all note events (note on, note off, poly
+pressure) on a specified channel by a specified amount.</p>
+</li><li>
+<p>There is also one <a href="MIDI.html">MIDI</a> file, examples/NoFences.mid.
+It is a little pop ditty I wrote. The instruments in this file use General
+<a href="MIDI.html">MIDI</a> patch numbers and drum note assignments. Since
+I don&#39;t normally use GM patches, the sounds used here are at best
+approximations of the sounds I use.</p>
+</li></ul>
+
+<h2 id="label-Resources">Resources<span><a href="#label-Resources">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The Ruby Web site (<a
+href="http://www.ruby-lang.org/en/index.html">www.ruby-lang.org/en/index.html</a>)
+contains an introduction to Ruby, the Ruby Application Archive (RAA) at <a
+href="http://raa.ruby-lang.org">raa.ruby-lang.org</a>, and pointers to more
+information.</p>
+
+<p>&lt;cite&gt;Programming Ruby, The Pragmatic Programmer&#39;s
+Guide&lt;/cite&gt;, by David Thomas and Andrew Hunt, is a well-written and
+practical introduction to Ruby. Its Web page at <a
+href="http://www.rubycentral.com/book">www.rubycentral.com/book</a> also
+contains a wealth of Ruby information. Though the first edition book is
+available online, I encourage you to purchase a copy of the latest edition.</p>
+
+<p>A description of the <a href="MIDI.html">MIDI</a> file format can be found
+in a few places such as <a
+href="http://www.borg.com/~jglatt/tech/midifile.htm">www.borg.com/~jglatt/tech/midifile.htm</a>.</p>
+
+<p>The <a href="MIDI.html">MIDI</a> message reference at <a
+href="http://www.jimmenard.com/midi_ref.html">www.jimmenard.com/midi_ref.html</a>
+describes the format of <a href="MIDI.html">MIDI</a> commands.</p>
+
+<h1 id="label-To+Do">To Do<span><a href="#label-To+Do">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Bugs">Bugs<span><a href="#label-Bugs">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>No known bugs. (If that&#39;s not a challenge, I don&#39;t know what is.)</p>
+
+<h2 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>print_decimal_numbers</code> and
+<code>print_channel_numbers_from_one</code> should be associated with
+sequence, or perhaps track, not event.</p>
+</li><li>
+<p>Method to translate event&#39;s time_from_start to number of milliseconds
+from start.</p>
+</li><li>
+<p>Swing quantizing. (Implied by list email from Carl Youngblood
+&lt;carl.youngblood@gmail.com&gt;)</p>
+</li><li>
+<p>Implement key signature in SeqReader.</p>
+</li><li>
+<p>Format 0 files.</p>
+</li><li>
+<p>Format 2 files(?).</p>
+</li></ul>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Write better docs.</p>
+</li></ul>
+
+<h2 id="label-Tests">Tests<span><a href="#label-Tests">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Tests for Noah Thorp&#39;s midilib bug fixes.</p>
+</li></ul>
+
+<h1 id="label-Support">Support<span><a href="#label-Support">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Visit the forums, bug list, and mailing list pages at <a
+href="http://rubyforge.org/projects/midilib">rubyforge.org/projects/midilib</a></p>
+</li><li>
+<p>Send email to Jim Menard at <a
+href="mailto:jim@jimmenard.com">jim@jimmenard.com</a></p>
+</li><li>
+<p>Ask on the ruby-talk mailing list</p>
+</li></ul>
+
+<h1 id="label-Administrivia">Administrivia<span><a href="#label-Administrivia">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Jim Menard (<a href="mailto:jim@jimmenard.com">jim@jimmenard.com</a>)</p>
+</dd><dt>Copyright
+<dd>
+<p>Copyright © 2003-2013 Jim Menard</p>
+</dd><dt>License
+<dd>
+<p>Distributed under the same license as Ruby.</p>
+</dd></dl>
+
+<h2 id="label-Copying">Copying<span><a href="#label-Copying">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>midilib is copyrighted free software by Jim Menard and is released under
+the same license as Ruby. See the Ruby license at <a
+href="http://www.ruby-lang.org/en/LICENSE.txt">www.ruby-lang.org/en/LICENSE.txt</a>.</p>
+
+<p>midilib may be freely copied in its entirety providing this notice, all
+source code, all documentation, and all other files are included.</p>
+
+<p>midilib is Copyright © 2003-2013 by Jim Menard.</p>
+
+<p>The song “No Fences” contained in the <a href="MIDI.html">MIDI</a> file
+examples/NoFences.mid is Copyright © 1992 by Jim Menard
+(jim@jimmenard.com). It may be freely used for non-commercial purposes as
+long as the author is given credit.</p>
+
+<h2 id="label-Recent+Changes">Recent Changes<span><a href="#label-Recent+Changes">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Changes+for+2.0.5-3A">Changes for 2.0.5:<span><a href="#label-Changes+for+2.0.5-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Updated <code>install.rb</code> to work with newer versions of Ruby by
+using <code>fileutils</code> instead of <code>ftools</code>.</p>
+
+<h3 id="label-Changes+for+2.0.3-3A">Changes for 2.0.3:<span><a href="#label-Changes+for+2.0.3-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>New <a
+href="MIDI/Sequence.html#method-i-pulses_to_seconds">MIDI::Sequence#pulses_to_seconds</a>
+method.</p>
+
+<h3 id="label-Changes+for+2.0.2-3A">Changes for 2.0.2:<span><a href="#label-Changes+for+2.0.2-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Stop monkeypatching Array in <a href="MIDI/Track.html">MIDI::Track</a>.</p>
+
+<h3 id="label-Changes+for+2.0.0-3A">Changes for 2.0.0:<span><a href="#label-Changes+for+2.0.0-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><a href="MIDI/NoteOn.html">MIDI::NoteOnEvent</a> and <a
+href="MIDI/NoteOff.html">MIDI::NoteOffEvent</a> renamed to <a
+href="MIDI/NoteOn.html">MIDI::NoteOn</a> and <a
+href="MIDI/NoteOff.html">MIDI::NoteOff</a>. The old names will still work
+for a while.</p>
+
+<p>The <a href="MIDI/Event.html">MIDI::Event</a> boolean methods like meta?
+and note? have been removed. Use the event classes themselves (for example,
+<a href="MIDI/MetaEvent.html">MIDI::MetaEvent</a> === my_event or
+my_event.kind_of?(MIDI::MetaEvent)). Case statements that use classes work,
+too:</p>
+
+<pre class="ruby"><span class="ruby-keyword">case</span> <span class="ruby-identifier">my_event</span>
+<span class="ruby-keyword">when</span> <span class="ruby-constant">MIDI</span><span class="ruby-operator">::</span><span class="ruby-constant">NoteEvent</span> <span class="ruby-comment"># superclass of note on, note off, poly press</span>
+  <span class="ruby-identifier">do_this</span>()
+<span class="ruby-keyword">when</span> <span class="ruby-constant">MIDI</span><span class="ruby-operator">::</span><span class="ruby-constant">Controller</span>
+  <span class="ruby-identifier">do_that</span>()
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Introduced Adam Murray&#39;s stable sorting code for <a
+href="MIDI/Track.html#method-i-recalc_delta_from_times">MIDI::Track#recalc_delta_from_times</a>.
+See <a
+href="http://wiki.github.com/adamjmurray/cosy/midilib-notes">wiki.github.com/adamjmurray/cosy/midilib-notes</a>
+and <a
+href="http://github.com/adamjmurray/cosy/blob/master/lib/cosy/helper/midi_file_renderer_helper.rb">github.com/adamjmurray/cosy/blob/master/lib/cosy/helper/midi_file_renderer_helper.rb</a>
+for details.</p>
+
+<p>Aliased <a href="MIDI/Track.html#method-i-sort">MIDI::Track#sort</a> to <a
+href="MIDI/Track.html#method-i-recalc_delta_from_times">MIDI::Track#recalc_delta_from_times</a>,
+since all sort did was sort the events then call recalc_delta_from_times,
+and recalc_delta_from_times sorts the events before doing anything else.</p>
+
+<p>MIDI::Tempo#mpq_to_bpm now returns a float.</p>
+
+<h3 id="label-Changes+for+1.2.0-3A">Changes for 1.2.0:<span><a href="#label-Changes+for+1.2.0-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Use byte arrays instead of strings for passing around data. All tests now
+pass for both Ruby 1.8.X and 1.9.X.</p>
+
+<h3 id="label-New+code+repository">New code repository<span><a href="#label-New+code+repository">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The midilib code is now hosted at Github (<a
+href="http://github.com/jimm/midilib">github.com/jimm/midilib</a>).</p>
+
+<h3 id="label-Changes+for+1.1.4-3A">Changes for 1.1.4:<span><a href="#label-Changes+for+1.1.4-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fixed a bug in KeySig.data_as_bytes. Thanks to Noah Thorp for finding this
+and the bug fixed in 1.1.3.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+1.1.3-3A">Changes for 1.1.3:<span><a href="#label-Changes+for+1.1.3-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fixed the way midilib detects the behavior of IO.getc.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+1.1.2-3A">Changes for 1.1.2:<span><a href="#label-Changes+for+1.1.2-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Define <a
+href="MIDI/IO/MIDIFile.html#method-i-getc">MIDI::IO::MIDIFile#getc</a>
+differently for different Ruby versions, instead of checking for
+String.bytes every time we read a byte.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+1.1.1-3A">Changes for 1.1.1:<span><a href="#label-Changes+for+1.1.1-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Make <a
+href="MIDI/IO/MIDIFile.html#method-i-getc">MIDI::IO::MIDIFile#getc</a> do
+the right thing for both Ruby 1.8 and 1.9.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+1.1.0-3A">Changes for 1.1.0:<span><a href="#label-Changes+for+1.1.0-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Added test/test.mid to list of files to be included when packaging midifile
+for distribution.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+1.0.0-3A">Changes for 1.0.0:<span><a href="#label-Changes+for+1.0.0-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fixed the bug in Track#recalc_delta_from_times found by Christopher Rose.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.7-3A">Changes for 0.8.7:<span><a href="#label-Changes+for+0.8.7-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fixed the misspelled POLY_PRESSURE constant, thanks to Mario Pehle.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.6-3A">Changes for 0.8.6:<span><a href="#label-Changes+for+0.8.6-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Added missing test/test.mid.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.5-3A">Changes for 0.8.5:<span><a href="#label-Changes+for+0.8.5-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fixed bugs in <a href="MIDI/PitchBend.html">MIDI::PitchBend</a> reading and
+writing, thanks to Emanuel Borsboom.</p>
+</li><li>
+<p>Fixed a bug in <a
+href="MIDI/Track.html#method-i-quantize">MIDI::Track#quantize</a>.</p>
+</li><li>
+<p>The argument to <a
+href="MIDI/Track.html#method-i-quantize">MIDI::Track#quantize</a> has
+changed: it is now either a note name (“sixteenth”, “32nd”, “8th triplet”)
+or a length (1 = quarter, 0.25 = sixteenth). This is a drastic change that
+will break all previous calls to quantize. However, since that method was
+broken already, I don&#39;t feel it&#39;s a burden to anybody to change the
+arguments.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.4-3A">Changes for 0.8.4:<span><a href="#label-Changes+for+0.8.4-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Realtime status bytes now set @is_realtime to true and return true when
+realtime? is called.</p>
+</li><li>
+<p>All system common events now set @is_system to true and return true when
+system? is called, not just system exclusive events.</p>
+</li><li>
+<p>Added examples/from_scratch.rb, which shows how to create a sequence
+manually.</p>
+</li><li>
+<p>New <a href="MIDI/Sequence.html">MIDI::Sequence</a> methods that turn note
+length names like “32nd”, “dotted quarter”, and “16th triplet” into delta
+times. See the docs below and MIDI::Sequence::length_to_delta,
+MIDI::Sequence::note_to_length, and MIDI::Sequence::note_to_delta.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.3-3A">Changes for 0.8.3:<span><a href="#label-Changes+for+0.8.3-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Added <a
+href="MIDI/NoteEvent.html#method-i-note_to_s">MIDI::NoteEvent#note_to_s</a>,
+which returns note name as a string like “C4” or “F#6”.</p>
+</li><li>
+<p>Added new boolean attributes to MIDI::Event: @print_decimal_numbers and
+@print_note_names. These are used by all Event to_s methods. See
+examples/seq2text.rb for an example.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.2-3A">Changes for 0.8.2:<span><a href="#label-Changes+for+0.8.2-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Changed MIDI::MetaEvent.type to MIDI::MetaEvent.event_type to avoid runtime
+complaints about Object#type calls.</p>
+</li><li>
+<p>Added &#39;b&#39; binary flag to file open modes for Windows.</p>
+</li><li>
+<p>Fixed $LOAD_PATH in example files.</p>
+</li><li>
+<p>Fixed read and write block arguments.</p>
+</li><li>
+<p>Fixed other example script bugs.</p>
+</li></ul>
+
+<h3 id="label-Changes+for+0.8.1-3A">Changes for 0.8.1:<span><a href="#label-Changes+for+0.8.1-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fixed track sorting.</p>
+</li><li>
+<p>Fixed track&#39;s recalc_delta_from_times method.</p>
+</li><li>
+<p>Fixed event quantization.</p>
+</li><li>
+<p>More tests and documentation.</p>
+</li></ul>
+
+<h2 id="label-Warranty">Warranty<span><a href="#label-Warranty">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This software is provided “as is” and without any express or implied
+warranties, including, without limitation, the implied warranties of
+merchantability and fitness for a particular purpose.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

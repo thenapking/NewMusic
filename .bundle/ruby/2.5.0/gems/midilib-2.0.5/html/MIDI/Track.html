@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MIDI::Track - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Enumerable</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-instrument">#instrument</a>
+    
+    <li ><a href="#method-i-instrument-3D">#instrument=</a>
+    
+    <li ><a href="#method-i-merge">#merge</a>
+    
+    <li ><a href="#method-i-merge_event_lists">#merge_event_lists</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-name-3D">#name=</a>
+    
+    <li ><a href="#method-i-quantize">#quantize</a>
+    
+    <li ><a href="#method-i-recalc_delta_from_times">#recalc_delta_from_times</a>
+    
+    <li ><a href="#method-i-recalc_times">#recalc_times</a>
+    
+    <li ><a href="#method-i-sort">#sort</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MIDI::Track">
+  <h1 id="class-MIDI::Track" class="class">
+    class MIDI::Track
+  </h1>
+
+  <section class="description">
+    
+<p>A <a href="Track.html">Track</a> is a list of events.</p>
+
+<p>When you modify the <code>events</code> array, make sure to call <a
+href="Track.html#method-i-recalc_times">#recalc_times</a> so each <a
+href="Event.html">Event</a> gets its <code>time_from_start</code>
+recalculated.</p>
+
+<p>A <a href="Track.html">Track</a> also holds a bitmask that specifies the
+channels used by the track. This bitmask is set when the track is read from
+the <a href="MIDI.html">MIDI</a> file by an <a
+href="IO/SeqReader.html">IO::SeqReader</a> but is <em>not</em> kept up to
+date by any other methods.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="UNNAMED">UNNAMED
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-channels_used" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">channels_used</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-events" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">events</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sequence" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sequence</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(sequence)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">sequence</span>)
+  <span class="ruby-ivar">@sequence</span> = <span class="ruby-identifier">sequence</span>
+  <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>()
+
+  <span class="ruby-comment"># Bitmask of all channels used. Set when track is read in from</span>
+  <span class="ruby-comment"># a MIDI file.</span>
+  <span class="ruby-ivar">@channels_used</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each</span><span
+            class="method-args">() { |event| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterate over events.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>                    <span class="ruby-comment"># :yields: event</span>
+  <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">event</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-instrument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instrument</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="instrument-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instrument</span>
+  <span class="ruby-constant">MetaEvent</span>.<span class="ruby-identifier">bytes_as_str</span>(<span class="ruby-ivar">@instrument</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-instrument-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instrument=</span><span
+            class="method-args">(str_or_bytes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="instrument-3D-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instrument=</span>(<span class="ruby-identifier">str_or_bytes</span>)
+  <span class="ruby-ivar">@instrument</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">str_or_bytes</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+                  <span class="ruby-constant">MetaEvent</span>.<span class="ruby-identifier">str_as_bytes</span>(<span class="ruby-identifier">str_or_bytes</span>)
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-identifier">str_or_bytes</span>
+                <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge</span><span
+            class="method-args">(event_list)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Merges an array of events into our event list. After merging, the
+events&#39; time_from_start values are correct so you don&#39;t need to
+worry about calling recalc_times.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="merge-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">event_list</span>)
+  <span class="ruby-ivar">@events</span> = <span class="ruby-identifier">merge_event_lists</span>(<span class="ruby-ivar">@events</span>, <span class="ruby-identifier">event_list</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge_event_lists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge_event_lists</span><span
+            class="method-args">(list1, list2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Merges two event arrays together. Does not modify this track.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="merge_event_lists-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge_event_lists</span>(<span class="ruby-identifier">list1</span>, <span class="ruby-identifier">list2</span>)
+  <span class="ruby-identifier">recalc_times</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">list1</span>)
+  <span class="ruby-identifier">recalc_times</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">list2</span>)
+  <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">list2</span>
+  <span class="ruby-identifier">recalc_delta_from_times</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">list</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return track name. If there is no name, return <a
+href="Track.html#UNNAMED">UNNAMED</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">event</span> = <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">MetaEvent</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">meta_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">META_SEQ_NAME</span> }
+  <span class="ruby-identifier">event</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data_as_str</span> <span class="ruby-operator">:</span> <span class="ruby-constant">UNNAMED</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name=</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set track name. Replaces or creates a name meta-event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-3D-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name=</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">event</span> = <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">MetaEvent</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">meta_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">META_SEQ_NAME</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">event</span>
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">event</span> = <span class="ruby-constant">MetaEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">META_SEQ_NAME</span>, <span class="ruby-identifier">name</span>, <span class="ruby-value">0</span>)
+    <span class="ruby-ivar">@events</span>[<span class="ruby-value">0</span>, <span class="ruby-value">0</span>] = <span class="ruby-identifier">event</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-quantize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quantize</span><span
+            class="method-args">(length_or_note)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Quantize every event. length_or_note is either a length (1 = quarter, 0.25
+= sixteenth, 4 = whole note) or a note name (“sixteenth”, “32nd”, “8th
+triplet”, “dotted quarter”).</p>
+
+<p>Since each event&#39;s time_from_start is modified, we call <a
+href="Track.html#method-i-recalc_delta_from_times">#recalc_delta_from_times</a>
+after each event quantizes itself.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="quantize-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quantize</span>(<span class="ruby-identifier">length_or_note</span>)
+  <span class="ruby-identifier">delta</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">length_or_note</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+            <span class="ruby-ivar">@sequence</span>.<span class="ruby-identifier">note_to_delta</span>(<span class="ruby-identifier">length_or_note</span>)
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@sequence</span>.<span class="ruby-identifier">length_to_delta</span>(<span class="ruby-identifier">length_or_note</span>.<span class="ruby-identifier">to_i</span>)
+          <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@events</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">quantize_to</span>(<span class="ruby-identifier">delta</span>) }
+  <span class="ruby-identifier">recalc_delta_from_times</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-recalc_delta_from_times" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">recalc_delta_from_times</span><span
+            class="method-args">(starting_at=0, list=@events)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The opposite of <a
+href="Track.html#method-i-recalc_times">#recalc_times</a>: recalculates
+delta_time for each event from each event&#39;s time_from_start. This is
+useful, for example, when merging two event lists. As a side-effect,
+elements from starting_at are sorted by time_from_start.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="recalc_delta_from_times-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">recalc_delta_from_times</span>(<span class="ruby-identifier">starting_at</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">list</span>=<span class="ruby-ivar">@events</span>)
+  <span class="ruby-identifier">prev_time_from_start</span> = <span class="ruby-value">0</span>
+  <span class="ruby-comment"># We need to sort the sublist. sublist.sort! does not do what we want.</span>
+  <span class="ruby-comment"># We call mergesort instead of Array.sort because sort is not stable</span>
+  <span class="ruby-comment"># (it can mix up the order of events that have the same start time).</span>
+  <span class="ruby-comment"># See http://wiki.github.com/adamjmurray/cosy/midilib-notes for details.</span>
+  <span class="ruby-identifier">list</span>[<span class="ruby-identifier">starting_at</span> <span class="ruby-operator">..</span> <span class="ruby-value">-1</span>] = <span class="ruby-constant">MIDI</span><span class="ruby-operator">::</span><span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">list</span>[<span class="ruby-identifier">starting_at</span> <span class="ruby-operator">..</span> <span class="ruby-value">-1</span>]).<span class="ruby-identifier">mergesort</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e1</span>, <span class="ruby-identifier">e2</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">e1</span>.<span class="ruby-identifier">time_from_start</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">e2</span>.<span class="ruby-identifier">time_from_start</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">list</span>[<span class="ruby-identifier">starting_at</span> <span class="ruby-operator">..</span> <span class="ruby-value">-1</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">e</span>.<span class="ruby-identifier">delta_time</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">time_from_start</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">prev_time_from_start</span>
+    <span class="ruby-identifier">prev_time_from_start</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">time_from_start</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Track.html#method-i-sort">sort</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-recalc_times" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">recalc_times</span><span
+            class="method-args">(starting_at=0, list=@events)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recalculate start times for all events in <code>list</code> from
+starting_at to end.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="recalc_times-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">recalc_times</span>(<span class="ruby-identifier">starting_at</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">list</span>=<span class="ruby-ivar">@events</span>)
+  <span class="ruby-identifier">t</span> = (<span class="ruby-identifier">starting_at</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">list</span>[<span class="ruby-identifier">starting_at</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">time_from_start</span>
+  <span class="ruby-identifier">list</span>[<span class="ruby-identifier">starting_at</span> <span class="ruby-operator">..</span> <span class="ruby-value">-1</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">delta_time</span>
+    <span class="ruby-identifier">e</span>.<span class="ruby-identifier">time_from_start</span> = <span class="ruby-identifier">t</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sort" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">sort</span><span
+            class="method-args">(starting_at=0, list=@events)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sort events by their time_from_start. After sorting, <a
+href="Track.html#method-i-recalc_delta_from_times">#recalc_delta_from_times</a>
+is called to make sure that the delta times reflect the possibly new event
+order.</p>
+
+<p>Note: this method is redundant, since <a
+href="Track.html#method-i-recalc_delta_from_times">#recalc_delta_from_times</a>
+sorts the events first. This method may go away in a future release, or at
+least be aliased to recalc_delta_from_times.</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Track.html#method-i-recalc_delta_from_times">recalc_delta_from_times</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

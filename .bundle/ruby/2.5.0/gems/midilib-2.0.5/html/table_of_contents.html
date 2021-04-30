@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Table of Contents - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" class="table-of-contents">
+<main role="main">
+<h1 class="class">Table of Contents - midilib</h1>
+
+<h2 id="pages">Pages</h2>
+<ul>
+  <li class="file">
+    <a href="README_rdoc.html">README</a>
+
+    <ul>
+      <li><a href="README_rdoc.html#label-midilib">midilib</a>
+      <li><a href="README_rdoc.html#label-Dependencies">Dependencies</a>
+      <li><a href="README_rdoc.html#label-Installation">Installation</a>
+      <li><a href="README_rdoc.html#label-RubyGems+Installation">RubyGems Installation</a>
+      <li><a href="README_rdoc.html#label-Manual+Installation">Manual Installation</a>
+      <li><a href="README_rdoc.html#label-Testing">Testing</a>
+      <li><a href="README_rdoc.html#label-Overview">Overview</a>
+      <li><a href="README_rdoc.html#label-MIDI-3A-3ASequence">MIDI::Sequence</a>
+      <li><a href="README_rdoc.html#label-MIDI-3A-3ATrack">MIDI::Track</a>
+      <li><a href="README_rdoc.html#label-MIDI-3A-3AMeasure">MIDI::Measure</a>
+      <li><a href="README_rdoc.html#label-MIDI-3A-3AMeasures">MIDI::Measures</a>
+      <li><a href="README_rdoc.html#label-MIDI-3A-3AEvent">MIDI::Event</a>
+      <li><a href="README_rdoc.html#label-How+To+Use">How To Use</a>
+      <li><a href="README_rdoc.html#label-Reading+a+MIDI+File">Reading a MIDI File</a>
+      <li><a href="README_rdoc.html#label-Writing+a+MIDI+File">Writing a MIDI File</a>
+      <li><a href="README_rdoc.html#label-Editing+a+MIDI+File">Editing a MIDI File</a>
+      <li><a href="README_rdoc.html#label-Transposing+One+Channel">Transposing One Channel</a>
+      <li><a href="README_rdoc.html#label-Manipulating+tracks">Manipulating tracks</a>
+      <li><a href="README_rdoc.html#label-Calculating+delta+times">Calculating delta times</a>
+      <li><a href="README_rdoc.html#label-Example+Scripts">Example Scripts</a>
+      <li><a href="README_rdoc.html#label-Resources">Resources</a>
+      <li><a href="README_rdoc.html#label-To+Do">To Do</a>
+      <li><a href="README_rdoc.html#label-Bugs">Bugs</a>
+      <li><a href="README_rdoc.html#label-Features">Features</a>
+      <li><a href="README_rdoc.html#label-Documentation">Documentation</a>
+      <li><a href="README_rdoc.html#label-Tests">Tests</a>
+      <li><a href="README_rdoc.html#label-Support">Support</a>
+      <li><a href="README_rdoc.html#label-Administrivia">Administrivia</a>
+      <li><a href="README_rdoc.html#label-Copying">Copying</a>
+      <li><a href="README_rdoc.html#label-Recent+Changes">Recent Changes</a>
+      <li><a href="README_rdoc.html#label-Changes+for+2.0.5-3A">Changes for 2.0.5:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+2.0.3-3A">Changes for 2.0.3:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+2.0.2-3A">Changes for 2.0.2:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+2.0.0-3A">Changes for 2.0.0:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.2.0-3A">Changes for 1.2.0:</a>
+      <li><a href="README_rdoc.html#label-New+code+repository">New code repository</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.1.4-3A">Changes for 1.1.4:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.1.3-3A">Changes for 1.1.3:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.1.2-3A">Changes for 1.1.2:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.1.1-3A">Changes for 1.1.1:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.1.0-3A">Changes for 1.1.0:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+1.0.0-3A">Changes for 1.0.0:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.7-3A">Changes for 0.8.7:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.6-3A">Changes for 0.8.6:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.5-3A">Changes for 0.8.5:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.4-3A">Changes for 0.8.4:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.3-3A">Changes for 0.8.3:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.2-3A">Changes for 0.8.2:</a>
+      <li><a href="README_rdoc.html#label-Changes+for+0.8.1-3A">Changes for 0.8.1:</a>
+      <li><a href="README_rdoc.html#label-Warranty">Warranty</a>
+    </ul>
+  </li>
+    <li class="file">
+    <a href="TODO_rdoc.html">TODO</a>
+
+    <ul>
+      <li><a href="TODO_rdoc.html#label-Bugs">Bugs</a>
+      <li><a href="TODO_rdoc.html#label-Features">Features</a>
+      <li><a href="TODO_rdoc.html#label-Documentation">Documentation</a>
+      <li><a href="TODO_rdoc.html#label-Tests">Tests</a>
+    </ul>
+  </li>
+  
+</ul>
+
+<h2 id="classes">Classes and Modules</h2>
+<ul>
+  <li class="class">
+    <a href="IO.html">IO</a>
+  </li>
+  <li class="module">
+    <a href="MIDI.html">MIDI</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/ActiveSense.html">MIDI::ActiveSense</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/ChannelEvent.html">MIDI::ChannelEvent</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/ChannelPressure.html">MIDI::ChannelPressure</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Clock.html">MIDI::Clock</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Continue.html">MIDI::Continue</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Controller.html">MIDI::Controller</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Event.html">MIDI::Event</a>
+  </li>
+  <li class="module">
+    <a href="MIDI/IO.html">MIDI::IO</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/IO/MIDIFile.html">MIDI::IO::MIDIFile</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/IO/SeqReader.html">MIDI::IO::SeqReader</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/IO/SeqWriter.html">MIDI::IO::SeqWriter</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/KeySig.html">MIDI::KeySig</a>
+  </li>
+  <li class="module">
+    <a href="MIDI/MIDI.html">MIDI::MIDI</a>
+  </li>
+  <li class="module">
+    <a href="MIDI/MIDI/MIDI.html">MIDI::MIDI::MIDI</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/MIDI/MIDI/Array.html">MIDI::MIDI::MIDI::Array</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Marker.html">MIDI::Marker</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Measure.html">MIDI::Measure</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Measures.html">MIDI::Measures</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/MetaEvent.html">MIDI::MetaEvent</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/NoteEvent.html">MIDI::NoteEvent</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/NoteOff.html">MIDI::NoteOff</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/NoteOff.html">MIDI::NoteOffEvent</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/NoteOn.html">MIDI::NoteOn</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/NoteOn.html">MIDI::NoteOnEvent</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/PitchBend.html">MIDI::PitchBend</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/PolyPressure.html">MIDI::PolyPressure</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/ProgramChange.html">MIDI::ProgramChange</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Realtime.html">MIDI::Realtime</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Sequence.html">MIDI::Sequence</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/SongPointer.html">MIDI::SongPointer</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/SongSelect.html">MIDI::SongSelect</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Start.html">MIDI::Start</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Stop.html">MIDI::Stop</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/SystemCommon.html">MIDI::SystemCommon</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/SystemExclusive.html">MIDI::SystemExclusive</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/SystemReset.html">MIDI::SystemReset</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Tempo.html">MIDI::Tempo</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/TimeSig.html">MIDI::TimeSig</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Track.html">MIDI::Track</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/TuneRequest.html">MIDI::TuneRequest</a>
+  </li>
+  <li class="class">
+    <a href="MIDI/Utils.html">MIDI::Utils</a>
+  </li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<ul>
+
+  <li class="method">
+    <a href="MIDI/Utils.html#method-c-as_var_len">::as_var_len</a>
+    &mdash;
+    <span class="container">MIDI::Utils</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-c-bpm_to_mpq">::bpm_to_mpq</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-c-bytes_as_str">::bytes_as_str</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-c-mpq_to_bpm">::mpq_to_bpm</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOff.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::NoteOff</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/ChannelEvent.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::ChannelEvent</span>
+
+  <li class="method">
+    <a href="MIDI/SongPointer.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::SongPointer</span>
+
+  <li class="method">
+    <a href="MIDI/NoteEvent.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::NoteEvent</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/KeySig.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::KeySig</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOn.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::NoteOn</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOn.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::NoteOn</span>
+
+  <li class="method">
+    <a href="MIDI/Measures.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Measures</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOff.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::NoteOff</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Measure.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Measure</span>
+
+  <li class="method">
+    <a href="MIDI/Marker.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Marker</span>
+
+  <li class="method">
+    <a href="MIDI/PolyPressure.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::PolyPressure</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/SystemReset.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::SystemReset</span>
+
+  <li class="method">
+    <a href="MIDI/Controller.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Controller</span>
+
+  <li class="method">
+    <a href="MIDI/ActiveSense.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::ActiveSense</span>
+
+  <li class="method">
+    <a href="MIDI/Stop.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Stop</span>
+
+  <li class="method">
+    <a href="MIDI/ProgramChange.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::ProgramChange</span>
+
+  <li class="method">
+    <a href="MIDI/Continue.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Continue</span>
+
+  <li class="method">
+    <a href="MIDI/Start.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Start</span>
+
+  <li class="method">
+    <a href="MIDI/ChannelPressure.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::ChannelPressure</span>
+
+  <li class="method">
+    <a href="MIDI/Clock.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Clock</span>
+
+  <li class="method">
+    <a href="MIDI/Realtime.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Realtime</span>
+
+  <li class="method">
+    <a href="MIDI/PitchBend.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::PitchBend</span>
+
+  <li class="method">
+    <a href="MIDI/TuneRequest.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::TuneRequest</span>
+
+  <li class="method">
+    <a href="MIDI/SongSelect.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::SongSelect</span>
+
+  <li class="method">
+    <a href="MIDI/SystemCommon.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::SystemCommon</span>
+
+  <li class="method">
+    <a href="MIDI/SystemExclusive.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::SystemExclusive</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/Utils.html#method-c-note_to_s">::note_to_s</a>
+    &mdash;
+    <span class="container">MIDI::Utils</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-c-str_as_bytes">::str_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-i-3C-3D-3E">#&lt;=&gt;</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-arbitrary">#arbitrary</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-bad_byte">#bad_byte</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-beats_per_minute">#beats_per_minute</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-bpm">#bpm</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-chan_message">#chan_message</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-chan_pressure">#chan_pressure</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-chan_pressure">#chan_pressure</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-i-channel_to_s">#channel_to_s</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/Measure.html#method-i-contains_event-3F">#contains_event?</a>
+    &mdash;
+    <span class="container">MIDI::Measure</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-controller">#controller</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-controller">#controller</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-i-data-3D">#data=</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/Controller.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::Controller</span>
+
+  <li class="method">
+    <a href="MIDI/Realtime.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::Realtime</span>
+
+  <li class="method">
+    <a href="MIDI/ChannelPressure.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::ChannelPressure</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/TuneRequest.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::TuneRequest</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/KeySig.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::KeySig</span>
+
+  <li class="method">
+    <a href="MIDI/NoteEvent.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::NoteEvent</span>
+
+  <li class="method">
+    <a href="MIDI/PitchBend.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::PitchBend</span>
+
+  <li class="method">
+    <a href="MIDI/SongSelect.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::SongSelect</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/SongPointer.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::SongPointer</span>
+
+  <li class="method">
+    <a href="MIDI/SystemExclusive.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::SystemExclusive</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/ProgramChange.html#method-i-data_as_bytes">#data_as_bytes</a>
+    &mdash;
+    <span class="container">MIDI::ProgramChange</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-i-data_as_str">#data_as_str</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-i-denominator">#denominator</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-each">#each</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-each">#each</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-end_track">#end_track</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-end_track">#end_track</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-eot">#eot</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-error">#error</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-get_bytes">#get_bytes</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-get_measures">#get_measures</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-getc">#getc</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-handle_arbitrary">#handle_arbitrary</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-handle_sysex">#handle_sysex</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-header">#header</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-header">#header</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-instrument">#instrument</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-instrument-3D">#instrument=</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-key_signature">#key_signature</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-key_signature">#key_signature</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-length_to_delta">#length_to_delta</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/KeySig.html#method-i-major_key-3F">#major_key?</a>
+    &mdash;
+    <span class="container">MIDI::KeySig</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-make_note_off">#make_note_off</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-i-measure_duration">#measure_duration</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/Measures.html#method-i-measure_for_event">#measure_for_event</a>
+    &mdash;
+    <span class="container">MIDI::Measures</span>
+
+  <li class="method">
+    <a href="MIDI/MIDI/MIDI/Array.html#method-i-merge">#merge</a>
+    &mdash;
+    <span class="container">MIDI::MIDI::MIDI::Array</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-merge">#merge</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-merge_event_lists">#merge_event_lists</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/MIDI/MIDI/Array.html#method-i-mergesort">#mergesort</a>
+    &mdash;
+    <span class="container">MIDI::MIDI::MIDI::Array</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-meta_event">#meta_event</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-meta_misc">#meta_misc</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-meta_misc">#meta_misc</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-i-metronome_ticks">#metronome_ticks</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/KeySig.html#method-i-minor_key-3F">#minor_key?</a>
+    &mdash;
+    <span class="container">MIDI::KeySig</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-msg">#msg</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-msg_add">#msg_add</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-msg_init">#msg_init</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-msg_read">#msg_read</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-name">#name</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-name">#name</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-name-3D">#name=</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-name-3D">#name=</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-note_off">#note_off</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-note_off">#note_off</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-note_on">#note_on</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-note_on">#note_on</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-note_to_delta">#note_to_delta</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-note_to_length">#note_to_length</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/NoteEvent.html#method-i-note_to_s">#note_to_s</a>
+    &mdash;
+    <span class="container">MIDI::NoteEvent</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-i-number_to_s">#number_to_s</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-i-numerator">#numerator</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/NoteEvent.html#method-i-pch_oct">#pch_oct</a>
+    &mdash;
+    <span class="container">MIDI::NoteEvent</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-pitch_bend">#pitch_bend</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-pitch_bend">#pitch_bend</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-possibly_munge_due_to_running_status_byte">#possibly_munge_due_to_running_status_byte</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/PolyPressure.html#method-i-pressure">#pressure</a>
+    &mdash;
+    <span class="container">MIDI::PolyPressure</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-pressure">#pressure</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-pressure">#pressure</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/PolyPressure.html#method-i-pressure-3D">#pressure=</a>
+    &mdash;
+    <span class="container">MIDI::PolyPressure</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-program">#program</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-program">#program</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-pulses_to_seconds">#pulses_to_seconds</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-quantize">#quantize</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-i-quantize_to">#quantize_to</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-read">#read</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read16">#read16</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read32">#read32</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read_from">#read_from</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read_header">#read_header</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read_mt_header_string">#read_mt_header_string</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read_track">#read_track</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-read_var_len">#read_var_len</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="IO.html#method-i-readbyte">#readbyte</a>
+    &mdash;
+    <span class="container">IO</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-recalc_delta_from_times">#recalc_delta_from_times</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-recalc_times">#recalc_times</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-sequence_number">#sequence_number</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-sequencer_specific">#sequencer_specific</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/KeySig.html#method-i-sharpflat">#sharpflat</a>
+    &mdash;
+    <span class="container">MIDI::KeySig</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-smpte">#smpte</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Track.html#method-i-sort">#sort</a>
+    &mdash;
+    <span class="container">MIDI::Track</span>
+
+  <li class="method">
+    <a href="MIDI/MIDI/MIDI/Array.html#method-i-split">#split</a>
+    &mdash;
+    <span class="container">MIDI::MIDI::MIDI::Array</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-start_track">#start_track</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-start_track">#start_track</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-sysex">#sysex</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-sysex">#sysex</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-tempo">#tempo</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-tempo">#tempo</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-i-tempo">#tempo</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-tempo">#tempo</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-i-tempo-3D">#tempo=</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-text">#text</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-text">#text</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-time_signature">#time_signature</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-time_signature">#time_signature</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-time_signature">#time_signature</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/Measures.html#method-i-to_mbt">#to_mbt</a>
+    &mdash;
+    <span class="container">MIDI::Measures</span>
+
+  <li class="method">
+    <a href="MIDI/Stop.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Stop</span>
+
+  <li class="method">
+    <a href="MIDI/SystemExclusive.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::SystemExclusive</span>
+
+  <li class="method">
+    <a href="MIDI/SongPointer.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::SongPointer</span>
+
+  <li class="method">
+    <a href="MIDI/Measure.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Measure</span>
+
+  <li class="method">
+    <a href="MIDI/Event.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Event</span>
+
+  <li class="method">
+    <a href="MIDI/KeySig.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::KeySig</span>
+
+  <li class="method">
+    <a href="MIDI/PitchBend.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::PitchBend</span>
+
+  <li class="method">
+    <a href="MIDI/ChannelEvent.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::ChannelEvent</span>
+
+  <li class="method">
+    <a href="MIDI/TimeSig.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::TimeSig</span>
+
+  <li class="method">
+    <a href="MIDI/SongSelect.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::SongSelect</span>
+
+  <li class="method">
+    <a href="MIDI/Tempo.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Tempo</span>
+
+  <li class="method">
+    <a href="MIDI/TuneRequest.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::TuneRequest</span>
+
+  <li class="method">
+    <a href="MIDI/ChannelPressure.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::ChannelPressure</span>
+
+  <li class="method">
+    <a href="MIDI/Start.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Start</span>
+
+  <li class="method">
+    <a href="MIDI/Continue.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Continue</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOn.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::NoteOn</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOff.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::NoteOff</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOff.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::NoteOff</span>
+
+  <li class="method">
+    <a href="MIDI/MetaEvent.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::MetaEvent</span>
+
+  <li class="method">
+    <a href="MIDI/SystemReset.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::SystemReset</span>
+
+  <li class="method">
+    <a href="MIDI/ProgramChange.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::ProgramChange</span>
+
+  <li class="method">
+    <a href="MIDI/PolyPressure.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::PolyPressure</span>
+
+  <li class="method">
+    <a href="MIDI/ActiveSense.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::ActiveSense</span>
+
+  <li class="method">
+    <a href="MIDI/Realtime.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Realtime</span>
+
+  <li class="method">
+    <a href="MIDI/Clock.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Clock</span>
+
+  <li class="method">
+    <a href="MIDI/Controller.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::Controller</span>
+
+  <li class="method">
+    <a href="MIDI/NoteOn.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">MIDI::NoteOn</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqReader.html#method-i-track_uses_channel">#track_uses_channel</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqReader</span>
+
+  <li class="method">
+    <a href="MIDI/Sequence.html#method-i-write">#write</a>
+    &mdash;
+    <span class="container">MIDI::Sequence</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-write16">#write16</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write16">#write16</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write32">#write32</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-write32">#write32</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write_bytes">#write_bytes</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write_header">#write_header</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write_instrument">#write_instrument</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write_to">#write_to</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write_track">#write_track</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/SeqWriter.html#method-i-write_var_len">#write_var_len</a>
+    &mdash;
+    <span class="container">MIDI::IO::SeqWriter</span>
+
+  <li class="method">
+    <a href="MIDI/IO/MIDIFile.html#method-i-write_var_len">#write_var_len</a>
+    &mdash;
+    <span class="container">MIDI::IO::MIDIFile</span>
+</ul>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MIDI::TimeSig - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="MetaEvent.html">MIDI::MetaEvent</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-data_as_bytes">#data_as_bytes</a>
+    
+    <li ><a href="#method-i-denominator">#denominator</a>
+    
+    <li ><a href="#method-i-measure_duration">#measure_duration</a>
+    
+    <li ><a href="#method-i-metronome_ticks">#metronome_ticks</a>
+    
+    <li ><a href="#method-i-numerator">#numerator</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MIDI::TimeSig">
+  <h1 id="class-MIDI::TimeSig" class="class">
+    class MIDI::TimeSig
+  </h1>
+
+  <section class="description">
+    
+<p>Container for time signature events</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(numer, denom, clocks, qnotes, delta_time = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructor</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="MetaEvent.html#method-c-new">MIDI::MetaEvent.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 549</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">numer</span>, <span class="ruby-identifier">denom</span>, <span class="ruby-identifier">clocks</span>, <span class="ruby-identifier">qnotes</span>, <span class="ruby-identifier">delta_time</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-constant">META_TIME_SIG</span>, [<span class="ruby-identifier">numer</span>, <span class="ruby-identifier">denom</span>, <span class="ruby-identifier">clocks</span>, <span class="ruby-identifier">qnotes</span>], <span class="ruby-identifier">delta_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-data_as_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_as_bytes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the complete event as stored in the sequence</p>
+          
+          
+
+          
+          <div class="method-source-code" id="data_as_bytes-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 554</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_as_bytes</span>
+  <span class="ruby-identifier">data</span> = []
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@status</span>
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@meta_type</span>
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">4</span>
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@data</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@data</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@data</span>[<span class="ruby-value">2</span>]
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@data</span>[<span class="ruby-value">3</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-denominator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">denominator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the denominator of the time signature. Use it as a power of 2 to
+get the displayed (lower-part) digit of the time signature.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="denominator-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 577</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">denominator</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-measure_duration" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">measure_duration</span><span
+            class="method-args">(ppqn)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calculates the duration (in ticks) for a full measure</p>
+          
+          
+
+          
+          <div class="method-source-code" id="measure_duration-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 566</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">measure_duration</span>(<span class="ruby-identifier">ppqn</span>)
+  (<span class="ruby-value">4</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">ppqn</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@data</span>[<span class="ruby-value">0</span>]) <span class="ruby-operator">/</span> (<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-ivar">@data</span>[<span class="ruby-value">1</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-metronome_ticks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">metronome_ticks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the metronome tick duration for the time signature. On each quarter
+note, there&#39;s 24 ticks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="metronome_ticks-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 583</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">metronome_ticks</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">2</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-numerator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">numerator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the numerator (the top digit) for the time signature</p>
+          
+          
+
+          
+          <div class="method-source-code" id="numerator-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 571</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">numerator</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">0</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the time signature for the event as a string. Example: “time sig
+3/4”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/midilib/event.rb, line 589</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-node">&quot;time sig #{@data[0]}/#{2**@data[1]}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

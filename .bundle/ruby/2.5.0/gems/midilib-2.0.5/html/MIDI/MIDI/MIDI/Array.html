@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MIDI::MIDI::MIDI::Array - midilib</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Array
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-merge">#merge</a>
+    
+    <li ><a href="#method-i-mergesort">#mergesort</a>
+    
+    <li ><a href="#method-i-split">#split</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MIDI::MIDI::MIDI::Array">
+  <h1 id="class-MIDI::MIDI::MIDI::Array" class="class">
+    class MIDI::MIDI::MIDI::Array
+  </h1>
+
+  <section class="description">
+    
+<p>This is taken from <a
+href="http://github.com/adamjmurray/cosy/blob/master/lib/cosy/helper/midi_file_renderer_helper.rb">github.com/adamjmurray/cosy/blob/master/lib/cosy/helper/midi_file_renderer_helper.rb</a>
+with permission from Adam Murray, who originally suggested this fix. See <a
+href="http://wiki.github.com/adamjmurray/cosy/midilib-notes">wiki.github.com/adamjmurray/cosy/midilib-notes</a>
+for details. First we need to add some API infrastructure:</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-mergesort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mergesort</span><span
+            class="method-args">(&cmp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A stable sorting algorithm that maintains the relative order of equal
+elements</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mergesort-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mergesort</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">cmp</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cmp</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">cmp</span> = <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">halves</span> = <span class="ruby-identifier">split</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">half</span><span class="ruby-operator">|</span> <span class="ruby-identifier">half</span>.<span class="ruby-identifier">mergesort</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">cmp</span>) }
+    <span class="ruby-identifier">merge</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">halves</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">cmp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge</span><span
+            class="method-args">(first, second, &predicate)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="merge-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">second</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">predicate</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">first</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">second</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">predicate</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">first</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">second</span>.<span class="ruby-identifier">first</span>) <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">first</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">second</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">first</span>).<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">second</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="split-source">
+            <pre><span class="ruby-comment"># File lib/midilib/track.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split</span>
+  <span class="ruby-identifier">n</span> = (<span class="ruby-identifier">length</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>).<span class="ruby-identifier">floor</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  [<span class="ruby-keyword">self</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">n</span>], <span class="ruby-keyword">self</span>[<span class="ruby-identifier">n</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

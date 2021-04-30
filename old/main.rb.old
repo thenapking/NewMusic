@@ -1,0 +1,30 @@
+FLATS=  %w(C Db D Eb E F Gb G Ab A Bb B)
+SHARPS= %w(C C# D D# E F F# G G# A A# B)
+ROMAN=  %w(I bII II bIII III IV #IV V bVI VI bVII VII)
+INTERVALS = %w(R b9 9 b3 3 11 #11 5 #5 6 b7 7)
+NUMBER_OF_NOTES = 12
+
+require_relative 'interval_sequence'
+require_relative 'sequence_finder'
+require_relative 'cell'
+
+m = IntervalSequence.new(values: [0,2,4,5,7,9,11], name: "Major")
+p m.evenness
+p m.length
+
+
+major_sequence = IntervalSequence.new(values: [0,2,4,5,7,9,11], name: "Major")
+minor_sequence = IntervalSequence.new(values: [0,2,3,5,7,8,10], name: "Minor")
+sus_sequence = IntervalSequence.new(values: [0,2,5,7,10], name: "9Sus4")
+melodic_minor_sequence = IntervalSequence.new(values: [0,2,3,5,7,9,11], name: "Melodic Minor")
+harmonic_minor_sequence = IntervalSequence.new(values: [0,2,3,5,7,8,11], name: "Harmonic Minor")
+
+pentatonics = SequenceFinder.new(intervals: [1,2,3,4,5], d: 5, n: 12)
+
+a = pentatonics.sequences.first
+b = IntervalSequence.new(intervals: [3,3,4,3,3], max: 16, name: "Bossa")
+
+c = Cell.new(rhythm_sequence: a, melodic_sequence: b)
+
+p a.values
+p b.intervals
