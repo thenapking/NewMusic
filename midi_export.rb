@@ -27,7 +27,7 @@ default_note_length = 'sixteenth'
 pulse = Cell.new( rhythmic_sequence: pulse_rhythm,
                   melodic_sequence: IntervalSequence.new(values: [a.values.first], max: 12), 
                   name: 'pulse')
-clave = Cell.new(rhythmic_sequence: a, melodic_sequence: b, name: "Bossa")
+clave = Cell.new(rhythmic_sequence: a, melodic_sequence: b, name: "Bossa 2")
 
 
 cells = [clave, clave.rotate(2), clave.transpose(7).rotate(1)]
