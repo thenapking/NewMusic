@@ -46,7 +46,7 @@ class CellTest < Minitest::Test
     shell_from_left =   @cell.dup.shell(*(0..(m-1)).map { |i| i })
     shell_from_right =  @cell.dup.shell(*(0..(m-1)).map { |i| @cell.last_onset - i } )
     shell_from_middle = @cell.dup.shell(*(1..m).map { |i| @cell.middle_onset + (i/2) * (-1) ** i })
- 
+
     #Assert
     assert(shell_from_left.rhythmic_sequence   == [9, 13])
     assert(shell_from_left.melodic_sequence    == [7, 10])

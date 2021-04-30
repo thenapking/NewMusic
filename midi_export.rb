@@ -61,6 +61,6 @@ cells.each do |cell|
       end
     end
   end
-  File.open("#{cell.name}.mid", 'wb') { |file| seq.write(file) }
+  File.open("./output/#{cell.name}.mid", 'wb') { |file| seq.write(file) }
 end
 
